@@ -9,11 +9,11 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
 } from "@nextui-org/react";
-import logo from "../../assets/logo.svg";
-import account from "../../assets/navbar/account.svg";
-import cart from "../../assets/navbar/cart.svg";
-import heart from "../../assets/navbar/heart.svg";
-import search from "../../assets/navbar/search.svg";
+import logo from "../assets/logo.svg"
+import account from "../assets/navbar/account.svg";
+import cart from "../assets/navbar/cart.svg";
+import heart from "../assets/navbar/heart.svg";
+import search from "../assets/navbar/search.svg";
 // import { RiMenu3Fill } from "react-icons/ri";
 // import { IoCloseOutline } from "react-icons/io5";
 
