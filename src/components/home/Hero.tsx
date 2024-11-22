@@ -1,5 +1,5 @@
 import React from "react";
-import hero from "../../assets/hero/hero-bg.svg";
+import hero from "/assets/hero/hero-bg.svg";
 import CustomButton from "../custom/home/CustomButton";
 
 const Hero = () => {

@@ -1,9 +1,9 @@
 import React from "react";
 import CustomHeading from "../custom/home/CustomHeading";
 import BrowseRangeCard from "../custom/home/BrowseRangeCard";
-import dining from "../../assets/hero/dining.svg";
-import living from "../../assets/hero/living.svg";
-import bedroom from "../../assets/hero/bedroom.svg";
+import dining from "/assets/hero/dining.svg";
+import living from "/assets/hero/living.svg";
+import bedroom from "/assets/hero/bedroom.svg";
 
 const BrowseRange = () => {
   return (

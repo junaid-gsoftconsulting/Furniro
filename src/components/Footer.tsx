@@ -52,7 +52,7 @@ const Footer = () => {
                 />
                 <CustomButton
                   text="SUBSCRIBE"
-                  className="bg-white border-b border-black"
+                  className="bg-white text-black border-b border-black"
                 />
               </div>
             </TableCell>

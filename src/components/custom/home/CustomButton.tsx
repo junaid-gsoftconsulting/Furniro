@@ -7,7 +7,7 @@ interface CustomButtonProps {
 
 const CustomButton = ({ text, className }: CustomButtonProps) => {
   return (
-    <Button className={`bg-primaryDark rounded-none ${className}`}>
+    <Button className={`bg-primaryDark rounded-none text-white ${className}`}>
       {text}
     </Button>
   );

@@ -1,0 +1,28 @@
+{
+  "homeSlider": [
+    {
+      "number": "01",
+      "place": "Bed Room",
+      "heading": "Inner Peace",
+      "image": "/assets/hero/carousel/Rectangle24.svg"
+    },
+    {
+      "number": "02",
+      "place": "Drawing Room",
+      "heading": "All Peace",
+      "image": "/assets/hero/carousel/Rectangle25.svg"
+    },
+    {
+      "number": "03",
+      "place": "Kitchen",
+      "heading": "Cook Best",
+      "image": "/assets/hero/carousel/Rectangle26.svg"
+    },
+    {
+      "number": "04",
+      "place": "TV Lounge",
+      "heading": "Let's Enjoys",
+      "image": "/assets/hero/carousel/Rectangle24.svg"
+    }
+  ]
+}
