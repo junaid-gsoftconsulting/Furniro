@@ -1,4 +1,3 @@
-import React from "react";
 import backgroundImage from "/assets/shop/breadcrum.png";
 import { Link, useLocation } from "react-router-dom";
 import { BreadcrumbItem, Breadcrumbs } from "@nextui-org/react";

@@ -1,4 +1,3 @@
-import React from "react";
 import CustomHeading from "../custom/home/CustomHeading";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import img1 from "/assets/hero/masonary-gallery/Rectangle 40.svg";

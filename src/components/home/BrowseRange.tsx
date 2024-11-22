@@ -1,4 +1,3 @@
-import React from "react";
 import CustomHeading from "../custom/home/CustomHeading";
 import BrowseRangeCard from "../custom/home/BrowseRangeCard";
 import dining from "/assets/hero/dining.svg";
