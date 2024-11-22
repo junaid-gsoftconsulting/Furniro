@@ -1,4 +1,3 @@
-import React from 'react'
 import trophy from "../../../assets/shop/trophy.svg";
 import support from "../../../assets/shop/support.svg";
 import shipping from "../../../assets/shop/shipping.svg";
