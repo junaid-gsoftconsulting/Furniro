@@ -17,7 +17,7 @@ import search from "../assets/navbar/search.svg";
 // import { RiMenu3Fill } from "react-icons/ri";
 // import { IoCloseOutline } from "react-icons/io5";
 
-export default function App() {
+export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const menuItems = ["Home", "Shop", "About", "Contact"];
 
@@ -29,22 +29,22 @@ export default function App() {
       </NavbarBrand>
       <NavbarContent className="hidden md:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/">
             Home
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#" color="foreground">
+          <Link href="/Shop" color="foreground">
             Shop
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/About">
             About
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/contact">
             Contact
           </Link>
         </NavbarItem>

@@ -18,7 +18,7 @@ const CustomSliderCard = ({ sliderData }: CustomSliderCardProps) => {
     >
       <div className="flex justify-center items-end h-full">
         <div
-          className="p-4 flex flex-col rounded-lg backdrop-blur-lg  "
+          className="p-4 flex flex-col backdrop-blur-lg  "
           style={{
             backgroundColor: "rgba(255, 255, 255, 0.6)", // Semi-transparent white
           }}
