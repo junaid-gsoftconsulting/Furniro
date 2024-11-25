@@ -1,4 +1,6 @@
 import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
+import CustomButton from "../custom/home/CustomButton";
+import { useNavigate } from "react-router-dom";
 
 interface ProductCardProps {
   product: {
@@ -13,14 +15,18 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
+  const navigate = useNavigate();
+  const cartHandler = (id: number) => {
+    navigate(`${id}`);
+  };
   return (
     <Card
       isPressable
       onPress={() => console.log("item pressed")}
       radius="none"
-      className="relative"
+      className="relative group"
     >
-      <CardBody className="overflow-hidden p-0">
+      <CardBody className="overflow-hidden p-0 group-hover:opacity-50">
         <Image
           width="100%"
           alt="product image"
@@ -30,12 +36,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <div
           className={`flex justify-center items-center ${
             product.discount === "New" ? "bg-green-300" : "bg-red-400"
-          }  rounded-full w-fit p-2 absolute top-5 right-7 z-10 text-white`}
+          }  rounded-full w-10 h-10 absolute top-5 right-7 z-10 text-white`}
         >
           {product.discount}
         </div>
       </CardBody>
-      <CardFooter className=" flex flex-col items-start gap-2 bg-lightGray">
+
+      <CardFooter className="flex flex-col items-start gap-2 bg-lightGray group-hover:opacity-50">
         <b className="text-2xl">{product.name}</b>
         <p className="text-sm text-gray-500">{product.miniDescription}</p>
         <div className="flex gap-4">
@@ -43,6 +50,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
           <del className="text-default-500">Rp{product.discountedPrice}</del>
         </div>
       </CardFooter>
+      {/* overlay */}
+      <div className="absolute bg-black/40 inset-0 opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center gap-2">
+        <CustomButton
+          text="Add to Cart"
+          className="bg-primary text-primaryDark font-semibold"
+          onClick={() => cartHandler(Number(product.id))}
+        />
+      </div>
     </Card>
   );
 };

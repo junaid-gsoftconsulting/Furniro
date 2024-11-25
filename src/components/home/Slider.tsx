@@ -1,9 +1,15 @@
+import { useState } from "react";
 import CustomButton from "../custom/home/CustomButton";
 import CustomSliderCard from "../custom/home/CustomSliderCard";
 import data from "../data.json";
 
 const Slider = () => {
-  console.log(data.homeSlider);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % data.homeSlider.length);
+  };
+
   return (
     <>
       <div className="flex bg-primary items-stretch h-[70vh]">
@@ -19,13 +25,17 @@ const Slider = () => {
           </div>
         </div>
         {/* 2 */}
-        {data.homeSlider.slice(0, 1).map((homeData, index) => {
+
+        <div className="basis-full md:basis-1/3 flex w-full">
+        <CustomSliderCard sliderData={data.homeSlider[currentIndex]} nextSlide={nextSlide}/>
+      </div>
+        {/* {data.homeSlider[currentIndex]((homeData, index) => {
           return (
             <div className="basis-full md:basis-1/3 flex w-full" key={index}>
               <CustomSliderCard sliderData={homeData} />
             </div>
           );
-        })}
+        })} */}
         {/* 3 */}
         <div className="basis-full md:basis-1/3"></div>
       </div>

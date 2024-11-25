@@ -3,7 +3,7 @@ import data from "../data.json";
 
 const AllProducts = () => {
   return (
-    <div className="flex gap-2">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 m-8">
       {data.products.map((product, index) => {
         return <ProductCard key={index} product={product} />;
       })}
