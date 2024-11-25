@@ -1,6 +1,9 @@
 import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 import CustomButton from "../custom/home/CustomButton";
 import { useNavigate } from "react-router-dom";
+import like from "../../../public/assets/products/icons/like.svg";
+import compare from "../../../public/assets/products/icons/compare.svg";
+import share from "../../../public/assets/products/icons/share.svg";
 
 interface ProductCardProps {
   product: {
@@ -17,7 +20,7 @@ interface ProductCardProps {
 const ProductCard = ({ product }: ProductCardProps) => {
   const navigate = useNavigate();
   const cartHandler = (id: number) => {
-    navigate(`${id}`);
+    navigate(`/shop/${id}`);
   };
   return (
     <Card
@@ -51,12 +54,23 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </div>
       </CardFooter>
       {/* overlay */}
-      <div className="absolute bg-black/40 inset-0 opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center gap-2">
+      <div className="absolute bg-black/60 inset-0 opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center gap-2">
         <CustomButton
           text="Add to Cart"
           className="bg-primary text-primaryDark font-semibold"
           onClick={() => cartHandler(Number(product.id))}
         />
+        <div className="flex text-white gap-5 font-semibold">
+          <div className="flex gap-1">
+            <img src={share} alt="icon" /> <p>Share</p>
+          </div>
+          <div className="flex gap-1">
+            <img src={compare} alt="icon" /> <p>Compare</p>
+          </div>
+          <div className="flex gap-1">
+            <img src={like} alt="icon" /> <p>Like</p>
+          </div>
+        </div>
       </div>
     </Card>
   );

@@ -149,7 +149,7 @@ const SingleProductCard = () => {
           </div>
           {/* buttons */}
           <div className="flex">
-            <div className="flex justify-between border border-black text-center py-2 px-2 gap-4 rounded-lg mr-2">
+            <div className="flex justify-between items-center border border-black text-center py-2 px-2 gap-4 rounded-lg mr-2">
               <span onClick={handleDecrement} className="cursor-pointer">
                 -
               </span>
@@ -201,7 +201,7 @@ const SingleProductCard = () => {
       {/* Related products */}
       <div className="flex flex-col">
         <CustomHeading heading="Related Products" />
-         <div className="grid grid-cols-4 gap-3 m-5" >
+         <div className="grid grid-cols-1 md:grid-cols-4 gap-3 m-5" >
         {relatedProducts.map((prod,index) =>{
            return <ProductCard product={prod} key={index}/>
           })}
