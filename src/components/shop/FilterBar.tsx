@@ -5,6 +5,7 @@ import category from "../../../public/assets/filter/category.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
 import {
+  showListView,
   showProductsPerPage,
   sortingProducts,
 } from "../slices/PaginationSlice";
@@ -26,8 +27,11 @@ const FilterBar = () => {
     dispatch(showProductsPerPage(showpro));
   };
 
+  const handleShowList = (type:string) =>{
+  dispatch(showListView(type))
+  }
   return (
-    <div className="flex justify-between bg-primary p-4 items-center ">
+    <div className="flex justify-between bg-primary p-4 items-center">
       {/* left */}
       <div className="flex gap-4">
         <div className="flex gap-4">
@@ -35,10 +39,10 @@ const FilterBar = () => {
             <img src={filter} alt="filter" />
           </span>
           <p>Filter</p>
-          <span>
+          <span onClick={()=>handleShowList("grid")} className="cursor-pointer">
             <img src={category} alt="filter" />
           </span>
-          <span>
+          <span onClick={()=>handleShowList("list")} className="cursor-pointer">
             <img src={list} alt="filter" />
           </span>
         </div>
@@ -109,3 +113,4 @@ const FilterBar = () => {
 };
 
 export default FilterBar;
+

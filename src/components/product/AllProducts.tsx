@@ -3,14 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { Pagination } from "@nextui-org/react";
 import { nextPage, prevPage } from "../slices/PaginationSlice";
+import ListProductCard from "./ListProductCard";
 
 const AllProducts = () => {
-  const { products, productsPerPage, currentPage } = useSelector(
-    (state: RootState) => state.pagination
-  );
+  const { products, productsPerPage, currentPage, setShowListView } =
+    useSelector((state: RootState) => state.pagination);
 
   const dispatch = useDispatch();
-
   const startIndex = (currentPage - 1) * productsPerPage;
   const endIndex = startIndex + productsPerPage;
   const currentProducts = products.slice(startIndex, endIndex);
@@ -26,11 +25,21 @@ const AllProducts = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 m-8">
-        {currentProducts.map((product, index) => {
-          return <ProductCard key={index} product={product} />;
-        })}
-      </div>
+      {setShowListView === "list" ? (
+        <div className=" m-10">
+       <div className="grid grid-cols-1 gap-4 max-w-4xl mx-auto">
+       {currentProducts.map((product, index) => {
+            return <ListProductCard key={index} product={product} />;
+          })}
+       </div>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 m-8">
+          {currentProducts.map((product, index) => {
+            return <ProductCard key={index} product={product} />;
+          })}
+        </div>
+      )}
       <div className="flex justify-center mb-4">
         <Pagination
           showControls
@@ -38,7 +47,6 @@ const AllProducts = () => {
           initialPage={currentPage}
           onChange={paginationHandler}
           color="warning"
-        
         />
       </div>
     </>

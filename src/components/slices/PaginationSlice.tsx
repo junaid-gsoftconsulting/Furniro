@@ -15,16 +15,16 @@ interface paginationInitialState {
   currentPage: number;
   sortBy: string;
   showproductsPerPage: string;
+  setShowListView: string;
 }
-
 const initialState: paginationInitialState = {
   products: [],
   productsPerPage: 4,
   currentPage: 1,
   sortBy: "default",
   showproductsPerPage: "4",
+  setShowListView: "grid",
 };
-
 export const paginationSlice = createSlice({
   name: "pagination",
   initialState,
@@ -62,6 +62,10 @@ export const paginationSlice = createSlice({
         state.productsPerPage = 24;
       }
     },
+    showListView: (state,action:PayloadAction<string>) => {
+      state.setShowListView = action.payload
+      
+    },
   },
 });
 
@@ -71,6 +75,9 @@ export const {
   prevPage,
   sortingProducts,
   showProductsPerPage,
+  showListView
 } = paginationSlice.actions;
 
 export default paginationSlice.reducer;
+
+
