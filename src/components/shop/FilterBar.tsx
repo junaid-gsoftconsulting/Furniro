@@ -1,21 +1,31 @@
-import { Divider } from "@nextui-org/react";
+import { Divider, Select, SelectItem } from "@nextui-org/react";
 import filter from "../../../public/assets/filter/filter.svg";
 import list from "../../../public/assets/filter/list.svg";
 import category from "../../../public/assets/filter/category.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store";
+import {
+  showProductsPerPage,
+  sortingProducts,
+} from "../slices/PaginationSlice";
 
-interface FilterBarProps {
-  totalProducts?: number;
-  currentPageStartProduct?: number;
-  currentPagEndProduct?: number;
-  totalProductsCurrentPage?: number;
-}
+const FilterBar = () => {
+  const { products, productsPerPage, currentPage } = useSelector(
+    (state: RootState) => state.pagination
+  );
+  const dispatch = useDispatch();
 
-const FilterBar = ({
-  totalProducts,
-  currentPageStartProduct,
-  currentPagEndProduct,
-  totalProductsCurrentPage,
-}: FilterBarProps) => {
+  const startIndex = (currentPage - 1) * productsPerPage;
+  const endIndex = startIndex + productsPerPage;
+  const currentProducts = Math.floor(endIndex);
+
+  const handleSortChange = (sortBy: string) => {
+    dispatch(sortingProducts(sortBy));
+  };
+  const handleShowProductsPerPage = (showpro: string) => {
+    dispatch(showProductsPerPage(showpro));
+  };
+
   return (
     <div className="flex justify-between bg-primary p-4 items-center ">
       {/* left */}
@@ -35,18 +45,64 @@ const FilterBar = ({
         <Divider orientation="vertical" className="w-[2px]" />
         <div className="">
           <p>
-            Showing {currentPageStartProduct}
-            {"-"}
-            {currentPagEndProduct} of {totalProducts} results
+            Showing 1–{Number(currentProducts)} of {products.length} results
           </p>
         </div>
       </div>
       {/* right */}
       <div className="flex justify-center items-center text-center gap-2">
         <p>Show</p>
-        <div className="bg-white p-2">{totalProductsCurrentPage}</div>
+        <div className="bg-white">
+          <Select
+            placeholder="4"
+            className="w-16 rounded-none"
+            color="default"
+            radius="none"
+            key={"4"}
+          >
+            <SelectItem
+              key={"4"}
+              onClick={() => handleShowProductsPerPage("4")}
+            >
+              4
+            </SelectItem>
+            <SelectItem
+              key={"8"}
+              onClick={() => handleShowProductsPerPage("8")}
+            >
+              8
+            </SelectItem>
+            <SelectItem
+              key={"16"}
+              onClick={() => handleShowProductsPerPage("16")}
+            >
+              16
+            </SelectItem>
+            <SelectItem
+              key={"32"}
+              onClick={() => handleShowProductsPerPage("32")}
+            >
+              32
+            </SelectItem>
+          </Select>
+        </div>
         <p>Sort by</p>
-        <div className="bg-white py-2 px-4">Default</div>
+        <div className="">
+          <Select
+            // label="Favorite Animal"
+            placeholder="Default"
+            className="w-32 rounded-none"
+            color="default"
+            radius="none"
+          >
+            <SelectItem key={"asc"} onClick={() => handleSortChange("asc")}>
+              Ascending
+            </SelectItem>
+            <SelectItem key={"desc"} onClick={() => handleSortChange("desc")}>
+              Descending
+            </SelectItem>
+          </Select>
+        </div>
       </div>
     </div>
   );
