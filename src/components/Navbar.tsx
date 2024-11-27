@@ -15,6 +15,8 @@ import cart from "../assets/navbar/cart.svg";
 import heart from "../assets/navbar/heart.svg";
 import search from "../assets/navbar/search.svg";
 import SidebarCart from "./cart/SidebarCart";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -23,6 +25,7 @@ export default function Header() {
   const handleCartToggle = () => {
     setIsCartOpen(!isCartOpen);
   };
+  const { products } = useSelector((state: RootState) => state.cart);
 
   return (
     <>
@@ -64,8 +67,13 @@ export default function Header() {
             <Link href="#">
               <img src={heart} alt="account" width="70%" />
             </Link>
-            <Link href="#" onClick={handleCartToggle}>
+            <Link href="#" onClick={handleCartToggle} className="relative">
               <img src={cart} alt="account" width="80%" />
+              {products.length > 0 && (
+                <div className="absolute flex justify-center items-center bg-red-600 rounded-full w-4 h-4 -top-1 right-0">
+                  <p className="text-[10px]">{products.length}</p>
+                </div>
+              )}
             </Link>
           </NavbarItem>
         </NavbarContent>

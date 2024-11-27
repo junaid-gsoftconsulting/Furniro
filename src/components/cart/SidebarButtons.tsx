@@ -1,11 +1,12 @@
 
 interface SidebarButtonsProps{
 text: string
+onClick?: () => void
 }
 
-const SidebarButtons = ({text}: SidebarButtonsProps) => {
+const SidebarButtons = ({text,onClick}: SidebarButtonsProps) => {
   return (
-    <button className='border border-black rounded-2xl py-1 px-4'>
+    <button className='border border-black rounded-2xl py-1 px-4' onClick={onClick}>
         {text}
     </button>
   )
