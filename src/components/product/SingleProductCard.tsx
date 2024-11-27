@@ -31,7 +31,7 @@ const SingleProductCard = () => {
   const [selectedImage, setSelectedImage] = useState<string>("");
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
   const [count, setCount] = useState<number>(0);
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState<string| null>(null);
   const { id } = useParams();
 
   useEffect(() => {
@@ -125,11 +125,9 @@ const SingleProductCard = () => {
                 return (
                   <div
                     className={` p-2 rounded-lg w-8 text-center cursor-pointer ${
-                      isActive ? "bg-primaryDark" : "bg-primary"
+                      isActive === size ? "bg-primaryDark" : "bg-primary"
                     }`}
-                    onClick={() =>
-                      isActive ? setIsActive(false) : setIsActive(true)
-                    }
+                    onClick={() => setIsActive(size) }
                     key={index}
                   >
                     {size}

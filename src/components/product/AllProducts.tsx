@@ -27,11 +27,11 @@ const AllProducts = () => {
     <>
       {setShowListView === "list" ? (
         <div className=" m-10">
-       <div className="grid grid-cols-1 gap-4 max-w-4xl mx-auto">
-       {currentProducts.map((product, index) => {
-            return <ListProductCard key={index} product={product} />;
-          })}
-       </div>
+          <div className="grid grid-cols-1 gap-4 max-w-4xl mx-auto">
+            {currentProducts.map((product, index) => {
+              return <ListProductCard key={index} product={product} />;
+            })}
+          </div>
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 m-8">
@@ -46,7 +46,7 @@ const AllProducts = () => {
           total={totalPages}
           initialPage={currentPage}
           onChange={paginationHandler}
-          color="warning"
+          
         />
       </div>
     </>

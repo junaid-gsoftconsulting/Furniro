@@ -18,7 +18,9 @@ const FilterBar = () => {
 
   const startIndex = (currentPage - 1) * productsPerPage;
   const endIndex = startIndex + productsPerPage;
-  const currentProducts = Math.floor(endIndex);
+  const currentProductStart = startIndex + 1;
+  const currentProductEnd =
+    endIndex > products.length ? products.length : endIndex;
 
   const handleSortChange = (sortBy: string) => {
     dispatch(sortingProducts(sortBy));
@@ -27,9 +29,9 @@ const FilterBar = () => {
     dispatch(showProductsPerPage(showpro));
   };
 
-  const handleShowList = (type:string) =>{
-  dispatch(showListView(type))
-  }
+  const handleShowList = (type: string) => {
+    dispatch(showListView(type));
+  };
   return (
     <div className="flex justify-between bg-primary p-4 items-center">
       {/* left */}
@@ -39,17 +41,23 @@ const FilterBar = () => {
             <img src={filter} alt="filter" />
           </span>
           <p>Filter</p>
-          <span onClick={()=>handleShowList("grid")} className="cursor-pointer">
+          <span
+            onClick={() => handleShowList("grid")}
+            className="cursor-pointer"
+          >
             <img src={category} alt="filter" />
           </span>
-          <span onClick={()=>handleShowList("list")} className="cursor-pointer">
+          <span
+            onClick={() => handleShowList("list")}
+            className="cursor-pointer"
+          >
             <img src={list} alt="filter" />
           </span>
         </div>
         <Divider orientation="vertical" className="w-[2px]" />
         <div className="">
           <p>
-            Showing 1–{Number(currentProducts)} of {products.length} results
+            Showing {currentProductStart}–{Number(currentProductEnd)} of {products.length} results
           </p>
         </div>
       </div>
@@ -113,4 +121,3 @@ const FilterBar = () => {
 };
 
 export default FilterBar;
-
