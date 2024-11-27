@@ -8,6 +8,8 @@ import twitter from "../../../public/assets/singleProduct/twitter.svg";
 import { FaStar } from "react-icons/fa";
 import CustomHeading from "../custom/home/CustomHeading";
 import ProductCard from "./ProductCard";
+import { useDispatch } from "react-redux";
+import { AddtoCart } from "../slices/CartSlice";
 
 interface Product {
   id: number;
@@ -30,10 +32,11 @@ const SingleProductCard = () => {
   const [products, setProducts] = useState<Product | null>(null);
   const [selectedImage, setSelectedImage] = useState<string>("");
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
-  const [count, setCount] = useState<number>(0);
-  const [isActive, setIsActive] = useState<string| null>(null);
+  const [count, setCount] = useState<number>(1);
+  const [isActive, setIsActive] = useState<string | null>(null);
   const { id } = useParams();
 
+  const dispatch = useDispatch();
   useEffect(() => {
     const product = data.products.find((product) => product.id === Number(id));
     setProducts(product || null);
@@ -58,8 +61,25 @@ const SingleProductCard = () => {
     setCount(count + 1);
   };
   const handleDecrement = () => {
-    setCount(count - 1);
+    if (count > 1) {
+      setCount(count - 1);
+    }
   };
+
+  const addToCartHandler = () => {
+    if (products) {
+      dispatch(
+        AddtoCart({
+          id: products.id,
+          name: products.name,
+          price: products.price,
+          images: products.images,
+          quantity: count,
+        })
+      );
+    }
+  };
+
   return (
     <div className="flex flex-col">
       {/* breadcrumb  */}
@@ -127,7 +147,7 @@ const SingleProductCard = () => {
                     className={` p-2 rounded-lg w-8 text-center cursor-pointer ${
                       isActive === size ? "bg-primaryDark" : "bg-primary"
                     }`}
-                    onClick={() => setIsActive(size) }
+                    onClick={() => setIsActive(size)}
                     key={index}
                   >
                     {size}
@@ -156,7 +176,10 @@ const SingleProductCard = () => {
                 +
               </span>
             </div>
-            <div className="border border-black text-center py-2 px-6 rounded-lg mr-2 cursor-pointer">
+            <div
+              className="border border-black text-center py-2 px-6 rounded-lg mr-2 cursor-pointer"
+              onClick={addToCartHandler}
+            >
               Add To Cart
             </div>
             <div className="border border-black text-center py-2 px-6 rounded-lg cursor-pointer">
@@ -199,25 +222,14 @@ const SingleProductCard = () => {
       {/* Related products */}
       <div className="flex flex-col">
         <CustomHeading heading="Related Products" />
-         <div className="grid grid-cols-1 md:grid-cols-4 gap-3 m-5" >
-        {relatedProducts.map((prod,index) =>{
-           return <ProductCard product={prod} key={index}/>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-3 m-5">
+          {relatedProducts.map((prod, index) => {
+            return <ProductCard product={prod} key={index} />;
           })}
-          </div>
+        </div>
       </div>
     </div>
   );
 };
 
 export default SingleProductCard;
-
-
-
-
-
-
-
-
-
-
-

@@ -142,8 +142,6 @@
         "/assets/hero/carousel/Rectangle24.svg",
         "/assets/hero/carousel/Rectangle25.svg",
         "/assets/hero/carousel/Rectangle24.svg"
-
-
       ]
     },
     {
@@ -161,10 +159,9 @@
       "tags": ["Sofa", "Chair", "Home", "Shop"],
       "discount": "New",
       "images": ["/assets/products/potty.svg"]
-    }
-    ,
+    },
     {
-      "id": 6,
+      "id": 9,
       "name": "Muggo",
       "description": "Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound.",
       "miniDescription": "Small mug",
@@ -180,7 +177,7 @@
       "images": ["/assets/products/muggo.svg"]
     },
     {
-      "id": 7,
+      "id": 10,
       "name": "Pingky",
       "description": "Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound.",
       "miniDescription": "Cute bed set",
@@ -198,12 +195,10 @@
         "/assets/hero/carousel/Rectangle24.svg",
         "/assets/hero/carousel/Rectangle25.svg",
         "/assets/hero/carousel/Rectangle24.svg"
-
-
       ]
     },
     {
-      "id": 8,
+      "id": 11,
       "name": "Potty",
       "description": "Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound.",
       "miniDescription": "Minimalist flower pot",

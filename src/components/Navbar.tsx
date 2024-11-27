@@ -15,8 +15,6 @@ import cart from "../assets/navbar/cart.svg";
 import heart from "../assets/navbar/heart.svg";
 import search from "../assets/navbar/search.svg";
 import SidebarCart from "./cart/SidebarCart";
-// import { RiMenu3Fill } from "react-icons/ri";
-// import { IoCloseOutline } from "react-icons/io5";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
