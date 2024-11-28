@@ -10,6 +10,8 @@ import CustomHeading from "../custom/home/CustomHeading";
 import ProductCard from "./ProductCard";
 import { useDispatch } from "react-redux";
 import { AddtoCart } from "../slices/CartSlice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface Product {
   id: number;
@@ -77,6 +79,7 @@ const SingleProductCard = () => {
           quantity: count,
         })
       );
+      toast("Product added to cart");
     }
   };
 
@@ -182,6 +185,7 @@ const SingleProductCard = () => {
             >
               Add To Cart
             </div>
+            <ToastContainer />
             <div className="border border-black text-center py-2 px-6 rounded-lg cursor-pointer">
               <span>+</span> Compare
             </div>
