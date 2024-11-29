@@ -90,7 +90,7 @@ const SingleProductCard = () => {
         <Breadcrumbs>
           <BreadcrumbItem href="/">Home</BreadcrumbItem>
           <BreadcrumbItem href="/shop">shop</BreadcrumbItem>
-          <BreadcrumbItem href="/shop">{products?.name}</BreadcrumbItem>
+          <BreadcrumbItem href="">{products?.name}</BreadcrumbItem>
         </Breadcrumbs>
       </div>
       {/* product */}
