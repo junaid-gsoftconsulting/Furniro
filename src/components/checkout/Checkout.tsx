@@ -31,7 +31,7 @@ const Checkout = () => {
       label: "Cash On Delivery",
       description:
         "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.",
-    },
+    }
   ];
 
   const paymentHandler = (methodId: string) => {
@@ -47,8 +47,8 @@ const Checkout = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 ">
           {/* left */}
           <div className="bg-red-2 m-5 flex flex-col gap-3">
-            <div className="flex flex-col md:flex-row justify-between gap-2">
-              <CustomInput name="First Name" type="text" />
+            <div className="flex flex-col lg:flex-row justify-between gap-2">
+              <CustomInput name="First Name" type="text"/>
               <CustomInput name="Last Name" type="text" />
             </div>
             <CustomInput name="Company Name (Optional)" type="text" />
@@ -99,7 +99,7 @@ const Checkout = () => {
                     isActive={activePaymentMethod === paymentMethod.id}
                     onClick={() => paymentHandler(paymentMethod.id)}
                     methodId={paymentMethod.id}
-                  />
+                  /> 
                 ))}
               </div>
             </div>

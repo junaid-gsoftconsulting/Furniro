@@ -28,7 +28,7 @@ const CustomPaymentMethod = ({
         </div>
         <div className="">{label}</div>
       </div>
-      {isActive && <div>{description}</div>}
+      {isActive && <div className="text-gray-500">{description}</div>}
     </div>
   );
 };
