@@ -25,7 +25,6 @@
       "image": "/assets/hero/carousel/Rectangle24.svg"
     }
   ],
-
   "products": [
     {
       "id": 1,
@@ -212,6 +211,48 @@
       "tags": ["Sofa", "Chair", "Home", "Shop"],
       "discount": "New",
       "images": ["/assets/products/potty.svg"]
+    }
+  ],
+  "blogs": [
+    {
+      "image": "/assets/blog/design.svg",
+      "heading": "Going all-in with millennial design",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mus mauris vitae ultricies leo integer malesuada nunc. In nulla posuere sollicitudin aliquam ultrices. Morbi blandit cursus risus at ultrices mi tempus imperdiet. Libero enim sed faucibus turpis in. Cursus mattis molestie a iaculis at erat. Nibh cras pulvinar mattis nunc sed blandit libero. Pellentesque elit ullamcorper dignissim cras tincidunt. Pharetra et ultrices neque ornare aenean euismod elementum.",
+      "category": "Wood"
+    },
+    {
+      "image": "/assets/blog/decorating.svg",
+      "heading": "Exploring new ways of decorating",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mus mauris vitae ultricies leo integer malesuada nunc. In nulla posuere sollicitudin aliquam ultrices. Morbi blandit cursus risus at ultrices mi tempus imperdiet. Libero enim sed faucibus turpis in. Cursus mattis molestie a iaculis at erat. Nibh cras pulvinar mattis nunc sed blandit libero. Pellentesque elit ullamcorper dignissim cras tincidunt. Pharetra et ultrices neque ornare aenean euismod elementum.",
+      "category": "Handmade"
+    },
+    {
+      "image": "/assets/blog/homemade.svg",
+      "heading": "Handmade pieces that took time to make",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mus mauris vitae ultricies leo integer malesuada nunc. In nulla posuere sollicitudin aliquam ultrices. Morbi blandit cursus risus at ultrices mi tempus imperdiet. Libero enim sed faucibus turpis in. Cursus mattis molestie a iaculis at erat. Nibh cras pulvinar mattis nunc sed blandit libero. Pellentesque elit ullamcorper dignissim cras tincidunt. Pharetra et ultrices neque ornare aenean euismod elementum.",
+      "category": "Wood"
+    }
+  ],
+  "recentPosts": [
+    {
+      "image": "/assets/blog/recentPosts/going.svg",
+      "desc": "Going all-in with millennial design"
+    },
+    {
+      "image": "/assets/blog/recentPosts/exploring.svg",
+      "desc": "Exploring new ways of decorating"
+    },
+    {
+      "image": "/assets/blog/recentPosts/handmade.svg",
+      "desc": "Handmade pieces that took time to make"
+    },
+    {
+      "image": "/assets/blog/recentPosts/modern.svg",
+      "desc": "Modern home in Milan"
+    },
+    {
+      "image": "/assets/blog/recentPosts/colorful.svg",
+      "desc": "Colorful office redesign"
     }
   ]
 }

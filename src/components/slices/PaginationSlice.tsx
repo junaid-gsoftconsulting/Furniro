@@ -10,6 +10,8 @@ interface Product {
   discount: string;
 }
 interface paginationInitialState {
+  itemsPerPage: any;
+  totalPages: any;
   products: Product[];
   productsPerPage: number;
   currentPage: number;

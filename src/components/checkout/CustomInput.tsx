@@ -1,7 +1,7 @@
 interface CustomInputProps {
   type: string;
   className?: string;
-  name: string;
+  name?: string;
   placeholder?: string
 }
 
