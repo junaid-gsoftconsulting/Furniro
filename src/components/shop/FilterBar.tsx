@@ -4,7 +4,7 @@ import list from "../../../public/assets/filter/list.svg";
 import category from "../../../public/assets/filter/category.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
-import search from "../../assets/navbar/search.svg"
+import search from "../../assets/navbar/search.svg";
 import {
   searchProducts,
   showListView,
@@ -13,7 +13,7 @@ import {
 } from "../slices/PaginationSlice";
 
 const FilterBar = () => {
-  const { productsPerPage, currentPage , filteredProducts} = useSelector(
+  const { productsPerPage, currentPage, filteredProducts } = useSelector(
     (state: RootState) => state.pagination
   );
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ const FilterBar = () => {
   };
   // search
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(searchProducts(e.target.value)); 
+    dispatch(searchProducts(e.target.value));
   };
   return (
     <div className="flex flex-col md:flex-row gap-3 justify-between bg-primary p-4 items-center">
@@ -62,7 +62,7 @@ const FilterBar = () => {
         </div>
         <Divider orientation="vertical" className="w-[2px]" />
         <div className="">
-        <p>
+          <p>
             Showing {currentProductStart}–{currentProductEnd} of{" "}
             {filteredProducts.length} results
           </p>
@@ -71,7 +71,7 @@ const FilterBar = () => {
       {/* right */}
       <div className="flex flex-col sm:flex-row justify-center items-center text-center gap-2">
         {/* search bar */}
-      <div className="relative w-64">
+        <div className="relative w-64">
           <input
             type="text"
             placeholder="Search products..."
@@ -79,7 +79,7 @@ const FilterBar = () => {
             onChange={handleSearchChange}
           />
           <span className="absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer">
-            <img src={search} alt="search" className="w-4"/>
+            <img src={search} alt="search" className="w-4" />
           </span>
         </div>
         <p>Show</p>
@@ -89,7 +89,7 @@ const FilterBar = () => {
             className="w-16 rounded-none"
             color="default"
             radius="none"
-            style={{ backgroundColor: '#FFFFFF' }}
+            style={{ backgroundColor: "#FFFFFF" }}
             key={"4"}
           >
             <SelectItem
@@ -121,15 +121,18 @@ const FilterBar = () => {
         <p>Sort by</p>
         <div className="">
           <Select
-            // label="Favorite Animal"
             placeholder="Default"
             className="w-32 rounded-none"
             color="default"
             radius="none"
-            style={{ backgroundColor: '#FFFFFF' }}
-
-          
+            style={{ backgroundColor: "#FFFFFF" }}
           >
+            <SelectItem
+              key={"default"}
+              onClick={() => handleSortChange("default")}
+            >
+              Default
+            </SelectItem>
             <SelectItem key={"asc"} onClick={() => handleSortChange("asc")}>
               Ascending
             </SelectItem>

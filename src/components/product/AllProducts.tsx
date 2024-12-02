@@ -47,6 +47,7 @@ const AllProducts = () => {
           initialPage={currentPage}
           onChange={paginationHandler}
           color="secondary"
+    
         />
       </div>
     </>

@@ -9,8 +9,15 @@ export const ContactValidation = z.object({
     .string()
     .min(5, "Email not be lesser than 5 characters")
     .max(30, "Email code must not be greater than 30 characters"),
+
+    subject: z
+    .string()
+    .min(5, "Subject must not be lesser than 5 characters")
+    .max(30, "Subject must not be greater than 30 characters")
+    .optional(),
+
   message: z
     .string()
-    .min(5, "Message not be lesser than 5 characters")
-    .max(30, "Message code must not be greater than 30 characters"),
+    .min(5, "Message must not be lesser than 5 characters")
+    .max(200, "Message must not be greater than 200 characters"),
 });

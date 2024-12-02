@@ -26,6 +26,9 @@ export default function Header() {
   const handleCartToggle = () => {
     setIsCartOpen(!isCartOpen);
   };
+  const handleMenuClose = () => {
+    setIsMenuOpen(false);
+  };
   const { products } = useSelector((state: RootState) => state.cart);
 
   return (
@@ -89,8 +92,8 @@ export default function Header() {
                 <Link
                   color={"foreground"}
                   className="w-full"
-                  to={`/${item}`}
-                  // size="lg"
+                  to={item === "home" ? "/" : `/${item}`}
+                  onClick={handleMenuClose}
                 >
                   {item}
                 </Link>

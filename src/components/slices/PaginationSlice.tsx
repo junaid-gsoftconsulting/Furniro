@@ -50,13 +50,15 @@ export const paginationSlice = createSlice({
     sortingProducts: (state, action) => {
       state.sortBy = action.payload;
       if (state.sortBy === "asc") {
-        state.filteredProducts = state.filteredProducts.sort((a, b) => {
+        state.products = state.products.sort((a, b) => {
           return Number(a.price) - Number(b.price);
         });
       } else if (state.sortBy === "desc") {
-        state.filteredProducts = state.filteredProducts.sort((a, b) => {
+        state.products = state.products.sort((a, b) => {
           return Number(b.price) - Number(a.price);
         });
+      } else if (state.sortBy === "default") {
+        state.products = [...state.products];
       }
     },
     showProductsPerPage: (state, action: PayloadAction<string>) => {

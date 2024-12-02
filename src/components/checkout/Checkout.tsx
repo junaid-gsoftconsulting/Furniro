@@ -9,13 +9,16 @@ import { useState } from "react";
 import SidebarButtons from "../cart/SidebarButtons";
 import CustomPaymentMethod from "./CustomPaymentMethod";
 import { RiCloseLine } from "react-icons/ri";
-import { Controller, useForm } from "react-hook-form";
+import { Controller, FieldError, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckoutFormSchema } from "../utils/CheckoutValidation";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Checkout = () => {
   const [activePaymentMethod, setActivePaymentMethod] = useState<string>();
   const { products } = useSelector((state: RootState) => state.cart);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const country = ["Pakistan", "India"];
   const provinces = ["Punjab", "KPK", "Balochistan", "Sindh"];
@@ -50,6 +53,15 @@ const Checkout = () => {
 
   const submitHandler = (data: unknown) => {
     console.log(data);
+    if (!isSubmitting) {
+      setIsSubmitting(true); 
+      toast.success("Your form have been submitted");
+
+     
+      setTimeout(() => {
+        setIsSubmitting(false);
+      }, 2000);
+    }
   };
   return (
     <div className="flex flex-col ">
@@ -66,29 +78,38 @@ const Checkout = () => {
                 control={control}
                 render={({ field }) => {
                   return (
-                    <CustomInput
-                      type="text"
-                      name="First Name"
-                      onChange={(e) => {
-                        field.onChange(e.target.value);
-                      }}
-                    />
+                    <div className="flex flex-col">
+                      <CustomInput
+                        type="text"
+                        name="First Name"
+                        onChange={(e) => field.onChange(e.target.value)}
+                      />
+                      {errors.firstName && (
+                        <span className="text-red-500 text-sm">
+                          {(errors.firstName as FieldError).message}
+                        </span>
+                      )}
+                    </div>
                   );
                 }}
               />
-
               <Controller
                 name="lastName"
                 control={control}
                 render={({ field }) => {
                   return (
-                    <CustomInput
-                      type="text"
-                      name="Last Name"
-                      onChange={(e) => {
-                        field.onChange(e.target.value);
-                      }}
-                    />
+                    <div className="flex flex-col">
+                      <CustomInput
+                        type="text"
+                        name="Last Name"
+                        onChange={(e) => field.onChange(e.target.value)}
+                      />
+                      {errors.lastName && (
+                        <span className="text-red-500 text-sm">
+                          {(errors.lastName as FieldError).message}
+                        </span>
+                      )}
+                    </div>
                   );
                 }}
               />
@@ -98,89 +119,163 @@ const Checkout = () => {
               control={control}
               render={({ field }) => {
                 return (
-                  <CustomInput
-                    type="text"
-                    name="Company Name (Optional)"
-                    onChange={(e) => {
-                      field.onChange(e.target.value);
-                    }}
-                  />
+                  <div className="flex flex-col">
+                    <CustomInput
+                      type="text"
+                      name="Company Name (Optional)"
+                      onChange={(e) => field.onChange(e.target.value)}
+                    />
+                    {errors.companyName && (
+                      <span className="text-red-500 text-sm">
+                        {(errors.companyName as FieldError).message}
+                      </span>
+                    )}
+                  </div>
                 );
               }}
             />
-            {/* dropdown */}
-            <CustomDropdown options={country} label="Country / Region" />
+
+            <Controller
+              name="country"
+              control={control}
+              render={({ field }) => (
+                <div className="flex flex-col">
+                  <CustomDropdown
+                    {...field}
+                    options={country}
+                    label="Country / Region"
+                    onChange={(e) => field.onChange(e.target.value)}
+                  />
+                  {errors.country && (
+                    <span className="text-red-500 text-sm">
+                      {(errors.country as FieldError).message}
+                    </span>
+                  )}
+                </div>
+              )}
+            />
+
+            <Controller
+              name="province"
+              control={control}
+              render={({ field }) => (
+                <div className="flex flex-col">
+                  <CustomDropdown
+                    {...field}
+                    options={provinces}
+                    label="Provinces"
+                    onChange={(e) => field.onChange(e.target.value)}
+                  />
+                  {errors.province && (
+                    <span className="text-red-500 text-sm">
+                      {(errors.province as FieldError).message}
+                    </span>
+                  )}
+                </div>
+              )}
+            />
 
             <Controller
               name="streetAddress"
               control={control}
               render={({ field }) => {
                 return (
-                  <CustomInput
-                    type="text"
-                    name="Street address"
-                    onChange={(e) => {
-                      field.onChange(e.target.value);
-                    }}
-                  />
+                  <div className="flex flex-col">
+                    <CustomInput
+                      type="text"
+                      name="Street address"
+                      onChange={(e) => field.onChange(e.target.value)}
+                    />
+                    {errors.streetAddress && (
+                      <span className="text-red-500 text-sm">
+                        {(errors.streetAddress as FieldError).message}
+                      </span>
+                    )}
+                  </div>
                 );
               }}
             />
+
             <Controller
               name="town"
               control={control}
               render={({ field }) => {
                 return (
-                  <CustomInput
-                    type="text"
-                    name="Town / City"
-                    onChange={(e) => {
-                      field.onChange(e.target.value);
-                    }}
-                  />
+                  <div className="flex flex-col">
+                    <CustomInput
+                      type="text"
+                      name="Town / City"
+                      onChange={(e) => field.onChange(e.target.value)}
+                    />
+                    {errors.town && (
+                      <span className="text-red-500 text-sm">
+                        {(errors.town as FieldError).message}
+                      </span>
+                    )}
+                  </div>
                 );
               }}
             />
-            {/* dropdown */}
-            <CustomDropdown options={provinces} label="Provinces" />
+
             <Controller
               name="zip"
               control={control}
               render={({ field }) => {
                 return (
-                  <CustomInput
-                    type="text"
-                    name="ZIP code"
-                    onChange={(e) => field.onChange(e.target.value)}
-                  />
+                  <div className="flex flex-col">
+                    <CustomInput
+                      type="text"
+                      name="ZIP code"
+                      onChange={(e) => field.onChange(e.target.value)}
+                    />
+                    {errors.zip && (
+                      <span className="text-red-500 text-sm">
+                        {(errors.zip as FieldError).message}
+                      </span>
+                    )}
+                  </div>
                 );
               }}
             />
+
             <Controller
               name="phone"
               control={control}
               render={({ field }) => {
                 return (
-                  <CustomInput
-                    type="text"
-                    name="Phone"
-                    onChange={(e) => field.onChange(e.target.value)}
-                  />
+                  <div className="flex flex-col">
+                    <CustomInput
+                      type="text"
+                      name="Phone"
+                      onChange={(e) => field.onChange(e.target.value)}
+                    />
+                    {errors.phone && (
+                      <span className="text-red-500 text-sm">
+                        {(errors.phone as FieldError).message}
+                      </span>
+                    )}
+                  </div>
                 );
               }}
             />
+
             <Controller
               name="email"
               control={control}
               render={({ field }) => {
                 return (
-                  <CustomInput
-                    name="Email address"
-                    type="email"
-                    onChange={(e) => {
-                      field.onChange(e.target.value);
-                    }}
-                  />
+                  <div className="flex flex-col">
+                    <CustomInput
+                      type="email"
+                      name="Email address"
+                      onChange={(e) => field.onChange(e.target.value)}
+                    />
+                    {errors.email && (
+                      <span className="text-red-500 text-sm">
+                        {(errors.email as FieldError).message}
+                      </span>
+                    )}
+                  </div>
                 );
               }}
             />
@@ -249,6 +344,7 @@ const Checkout = () => {
           </div>
         </div>
       </form>
+      <ToastContainer />
       <Banner />
     </div>
   );

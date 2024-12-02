@@ -43,6 +43,8 @@ const Blog = () => {
               total={totalPages}
               initialPage={currentPage}
               onChange={paginationHandler}
+              color="secondary"
+
             />
           </div>
         </div>
