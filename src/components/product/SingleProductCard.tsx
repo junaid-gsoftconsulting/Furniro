@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 import { AddtoCart } from "../slices/CartSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import DescriptionTabs from "./DescriptionTabs";
 
 interface Product {
   id: number;
@@ -223,6 +224,9 @@ const SingleProductCard = () => {
           </div>
         </div>
       </div>
+        <Divider/>
+      {/* description tabs */}
+     <DescriptionTabs/>
       {/* Related products */}
       <div className="flex flex-col">
         <CustomHeading heading="Related Products" />

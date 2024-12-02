@@ -46,6 +46,11 @@ export const MasonryGallery = () => {
               alt=""
               className="w-full h-auto object-cover mb-4"
             />
+              <img
+              src={img5}
+              alt=""
+              className="w-full h-auto object-cover mb-4"
+            />
              <img
               src={img6}
               alt=""

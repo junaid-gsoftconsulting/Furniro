@@ -21,7 +21,7 @@ import { RootState } from "../store";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const menuItems = ["Home", "Shop", "About", "Contact"];
+  const menuItems = ["home", "shop", "blog", "contact"];
   const handleCartToggle = () => {
     setIsCartOpen(!isCartOpen);
   };
@@ -41,13 +41,13 @@ export default function Header() {
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link href="/Shop" color="foreground">
+            <Link href="/shop" color="foreground">
               Shop
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color="foreground" href="/About">
-              About
+            <Link color="foreground" href="/blog">
+              Blog
             </Link>
           </NavbarItem>
           <NavbarItem>
@@ -88,7 +88,7 @@ export default function Header() {
                 <Link
                   color={"foreground"}
                   className="w-full"
-                  href="#"
+                  href={`/${item}`}
                   size="lg"
                 >
                   {item}

@@ -13,7 +13,7 @@ const CustomSliderCard = ({ sliderData, nextSlide }: CustomSliderCardProps) => {
 
   return (
     <div
-      className="flex flex-col justify-between w-full bg-cover"
+      className="flex flex-col justify-between w-full bg-cover h-96 md:h-auto"
       style={{ backgroundImage: `url(${sliderData.image})` }}
     >
       <div className="flex justify-center items-end h-full">

@@ -2,6 +2,8 @@ import admin from "../../../public/assets/blog/icons/admin.svg";
 import date from "../../../public/assets/blog/icons/date.svg";
 import category from "../../../public/assets/blog/icons/category.svg";
 import SidebarButtons from "../cart/SidebarButtons";
+
+
 interface BlogCardProps {
   blog: {
     image: string;
@@ -11,6 +13,7 @@ interface BlogCardProps {
   };
 }
 const BlogCard = ({ blog }: BlogCardProps) => {
+
   return (
     <div className="flex flex-col gap-5 mb-5">
       <img src={blog.image} alt="blog image" />
@@ -32,10 +35,12 @@ const BlogCard = ({ blog }: BlogCardProps) => {
       {/* content */}
       <b className="text-3xl">{blog.heading}</b>
       <p>{blog.description}</p>
-    <div>
-    <SidebarButtons text="Read more" className="border-b-2 border-black rounded-none"/>
-
-    </div>
+      <div>
+        <SidebarButtons
+          text="Read more"
+          className="border-b-2 border-black rounded-none"
+        />
+      </div>
     </div>
   );
 };

@@ -8,6 +8,7 @@ import { RootState } from "../../store";
 import { useState } from "react";
 import SidebarButtons from "../cart/SidebarButtons";
 import CustomPaymentMethod from "./CustomPaymentMethod";
+import { RiCloseLine } from "react-icons/ri";
 
 const Checkout = () => {
   const [activePaymentMethod, setActivePaymentMethod] = useState<string>();
@@ -31,7 +32,7 @@ const Checkout = () => {
       label: "Cash On Delivery",
       description:
         "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.",
-    }
+    },
   ];
 
   const paymentHandler = (methodId: string) => {
@@ -46,10 +47,10 @@ const Checkout = () => {
         {/* grid start */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 ">
           {/* left */}
-          <div className="bg-red-2 m-5 flex flex-col gap-3">
-            <div className="flex flex-col lg:flex-row justify-between gap-2">
-              <CustomInput name="First Name" type="text"/>
-              <CustomInput name="Last Name" type="text" />
+          <div className="m-5 flex flex-col gap-3">
+            <div className="flex flex-col lg:flex-row gap-2 w-full">
+              <CustomInput name="First Name" type="text" className=" w-full" />
+              <CustomInput name="Last Name" type="text" className="w-full" />
             </div>
             <CustomInput name="Company Name (Optional)" type="text" />
             {/* dropdown */}
@@ -68,11 +69,12 @@ const Checkout = () => {
             <div className="flex justify-between w-full">
               <div className="flex flex-col">
                 <b className="text-xl">Product</b>
-                <p>
+                <p className="flex justify-center items-center">
                   <span className="text-gray-500">
                     {products.map((product) => product.name)}
                   </span>{" "}
-                  * {products.map((product) => product.quantity)}
+                  <RiCloseLine className="text-black" />{" "}
+                  {products.map((product) => product.quantity)}
                 </p>
                 <p>Subtotal</p>
                 <p>Total</p>
@@ -89,7 +91,6 @@ const Checkout = () => {
             </div>
             <Divider className="my-3" />
             <div className="flex flex-col">
-           
               {/* payment method */}
               <div>
                 {paymentMethods.map((paymentMethod) => (
@@ -99,7 +100,7 @@ const Checkout = () => {
                     isActive={activePaymentMethod === paymentMethod.id}
                     onClick={() => paymentHandler(paymentMethod.id)}
                     methodId={paymentMethod.id}
-                  /> 
+                  />
                 ))}
               </div>
             </div>
@@ -113,7 +114,10 @@ const Checkout = () => {
               </p>
             </div>
             <div className="flex justify-center ">
-              <SidebarButtons text="Place order" className="w-36 md:w-72" />
+              <SidebarButtons
+                text="Place order"
+                className="w-36 md:w-72 border border-black rounded-xl"
+              />
             </div>
           </div>
         </div>

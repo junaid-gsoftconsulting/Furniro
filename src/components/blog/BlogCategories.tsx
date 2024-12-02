@@ -28,8 +28,8 @@ const BlogCategories = () => {
         <CustomInput type="text" className="border-gray-400 pl-8" />
         <IoSearch className="absolute right-2 top-3" />
       </div>
-      <div className="flex flex-col">
-        <b>Categories</b>
+      <div className="flex flex-col gap-2 my-5">
+        <b className="text-2xl">Categories</b>
         <div className="flex justify-between">
           <div className="text-gray-500 flex flex-col gap-3">
             {categories.length > 0 ? (

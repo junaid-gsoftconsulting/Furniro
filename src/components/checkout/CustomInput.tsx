@@ -7,7 +7,7 @@ interface CustomInputProps {
 
 const CustomInput = ({ type, className, name, placeholder }: CustomInputProps) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       <label className="font-semibold">{name}</label>
       <input
         type={type}

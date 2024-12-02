@@ -7,7 +7,7 @@ interface SidebarButtonsProps {
 const SidebarButtons = ({ text, onClick, className }: SidebarButtonsProps) => {
   return (
     <button
-      className={`border border-black rounded-2xl py-1 px-4 ${className}`}
+      className={`rounded-none py-1 px-4 ${className}`}
       onClick={onClick}
     >
       {text}

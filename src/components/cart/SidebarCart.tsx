@@ -57,9 +57,17 @@ const SidebarCart = ({ onClose }: SidebarCartProps) => {
       <div className="flex flex-col gap-3 justify-end h-[15%]">
         <Divider orientation="horizontal" />
         <div className="flex flex-wrap gap-3 p-2 justify-evenly w-full">
-          <SidebarButtons text="Cart" onClick={cartHandler} />
-          <SidebarButtons text="Checkout" onClick={checkoutHandler} />
-          <SidebarButtons text="Comparison" />
+          <SidebarButtons
+            text="Cart"
+            onClick={cartHandler}
+            className="border border-black rounded-xl"
+          />
+          <SidebarButtons
+            text="Checkout"
+            onClick={checkoutHandler}
+            className="border border-black rounded-xl"
+          />
+          <SidebarButtons text="Comparison" className="border border-black rounded-xl" />
         </div>
       </div>
     </div>
