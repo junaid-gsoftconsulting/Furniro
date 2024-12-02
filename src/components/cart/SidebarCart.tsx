@@ -5,6 +5,9 @@ import CartSidebarCard from "./CartSidebarCard";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 interface SidebarCartProps {
   onClose: () => void;
 }
@@ -17,8 +20,12 @@ const SidebarCart = ({ onClose }: SidebarCartProps) => {
     onClose();
   };
   const checkoutHandler = () => {
-    navigate("/checkout");
-    onClose();
+    if (products.length === 0) {
+      toast.error("Kindly Add some product to cart");
+    } else {
+      navigate("/checkout");
+      onClose();
+    }
   };
   return (
     <div className="fixed top-0 right-0 w-full sm:w-[75%] md:w-1/3 h-full bg-white shadow-lg z-50 p-8">
@@ -62,12 +69,17 @@ const SidebarCart = ({ onClose }: SidebarCartProps) => {
             onClick={cartHandler}
             className="border border-black rounded-xl"
           />
+          <ToastContainer />
+
           <SidebarButtons
             text="Checkout"
             onClick={checkoutHandler}
             className="border border-black rounded-xl"
           />
-          <SidebarButtons text="Comparison" className="border border-black rounded-xl" />
+          <SidebarButtons
+            text="Comparison"
+            className="border border-black rounded-xl"
+          />
         </div>
       </div>
     </div>

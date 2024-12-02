@@ -33,9 +33,9 @@ const FilterBar = () => {
     dispatch(showListView(type));
   };
   return (
-    <div className="flex justify-between bg-primary p-4 items-center">
+    <div className="flex flex-col md:flex-row gap-3 justify-between bg-primary p-4 items-center">
       {/* left */}
-      <div className="flex gap-4">
+      <div className="flex flex-col sm:flex-row gap-4">
         <div className="flex gap-4">
           <span>
             <img src={filter} alt="filter" />
@@ -62,7 +62,7 @@ const FilterBar = () => {
         </div>
       </div>
       {/* right */}
-      <div className="flex justify-center items-center text-center gap-2">
+      <div className="flex flex-col sm:flex-row justify-center items-center text-center gap-2">
         <p>Show</p>
         <div className="bg-white">
           <Select

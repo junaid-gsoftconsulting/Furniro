@@ -28,7 +28,9 @@ const BreadcrumCard = () => {
       </div>
       {/* <Link to={currentLink}>{crumbs}</Link> */}
       <Breadcrumbs>
-        <BreadcrumbItem href="/">Home</BreadcrumbItem>
+        <BreadcrumbItem href="/" className="font-bold" color="secondary">
+          Home
+        </BreadcrumbItem>
         <BreadcrumbItem href={currentLink}>{crumbs}</BreadcrumbItem>
       </Breadcrumbs>
     </div>

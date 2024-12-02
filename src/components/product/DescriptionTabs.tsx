@@ -3,7 +3,7 @@ import image1 from "../../../public/assets/products/desc-tabs/Group107.svg";
 import image2 from "../../../public/assets/products/desc-tabs/Group106.svg";
 
 const DescriptionTabs = () => {
-  const [description, setDescription] = useState(false);
+  const [description, setDescription] = useState(true);
   const [info, setInfo] = useState(false);
   const [reviews, setReviews] = useState(false);
 

@@ -4,7 +4,7 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  Link,
+  // Link,
   NavbarMenu,
   NavbarMenuItem,
   NavbarMenuToggle,
@@ -17,6 +17,7 @@ import search from "../assets/navbar/search.svg";
 import SidebarCart from "./cart/SidebarCart";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -36,38 +37,38 @@ export default function Header() {
         </NavbarBrand>
         <NavbarContent className="hidden md:flex gap-4" justify="center">
           <NavbarItem>
-            <Link color="foreground" href="/">
+            <Link color="foreground" to="/">
               Home
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link href="/shop" color="foreground">
+            <Link to="/shop" color="foreground">
               Shop
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color="foreground" href="/blog">
+            <Link color="foreground" to="/blog">
               Blog
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color="foreground" href="/contact">
+            <Link color="foreground" to="/contact">
               Contact
             </Link>
           </NavbarItem>
         </NavbarContent>
         <NavbarContent justify="end">
           <NavbarItem className="hidden md:flex gap-3">
-            <Link href="#">
+            <Link to="#">
               <img src={account} alt="account" width="80%" />
             </Link>
-            <Link href="#">
+            <Link to="#">
               <img src={search} alt="account" width="70%" />
             </Link>
-            <Link href="#">
+            <Link to="#">
               <img src={heart} alt="account" width="70%" />
             </Link>
-            <Link href="#" onClick={handleCartToggle} className="relative">
+            <Link to="#" onClick={handleCartToggle} className="relative">
               <img src={cart} alt="account" width="80%" />
               {products.length > 0 && (
                 <div className="absolute flex justify-center items-center bg-red-600 rounded-full w-4 h-4 -top-1 right-0">
@@ -83,13 +84,13 @@ export default function Header() {
             className="sm:hidden"
           />
           <NavbarMenu className="items-center">
-            {menuItems.map((item, index) => (
+            {menuItems?.map((item, index) => (
               <NavbarMenuItem key={`${item}-${index}`}>
                 <Link
                   color={"foreground"}
                   className="w-full"
-                  href={`/${item}`}
-                  size="lg"
+                  to={`/${item}`}
+                  // size="lg"
                 >
                   {item}
                 </Link>

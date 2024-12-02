@@ -52,22 +52,20 @@ const Slider = () => {
             spaceBetween={5}
             pagination={{
               clickable: true,
-      
             }}
             height={30}
             className="h-96 w-full"
             width={100}
             modules={[Pagination]}
-        
           >
             <SwiperSlide>
-              <img src={sliderPic} alt="swiper" className="w-full"/>
+              <img src={sliderPic} alt="swiper" className="w-full" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={sliderPic2} alt="swiper" className="w-full"/>
+              <img src={sliderPic2} alt="swiper" className="w-full" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={sliderPic3} alt="swiper" className="w-full"/>
+              <img src={sliderPic3} alt="swiper" className="w-full" />
             </SwiperSlide>
           </Swiper>
         </div>

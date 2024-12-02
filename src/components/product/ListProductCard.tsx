@@ -23,8 +23,8 @@ const ListProductCard = ({ product }: ProductCardProps) => {
     navigate(`/shop/${id}`);
   };
   return (
-    <Card isPressable radius="none" className="relative group">
-      <CardBody className="overflow-hidden p-0 group-hover:opacity-50">
+    <Card isPressable radius="none" className="relative group shadow-none" shadow="none">
+      <CardBody className="overflow-hidden p-0 group-hover:opacity-50" >
         <Image
           width="100%"
           alt="product image"

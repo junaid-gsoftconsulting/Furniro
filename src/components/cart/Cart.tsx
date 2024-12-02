@@ -1,4 +1,3 @@
-import React from "react";
 import SidebarButtons from "./SidebarButtons";
 import Banner from "../custom/shop/Banner";
 import { useSelector } from "react-redux";
@@ -7,9 +6,9 @@ import CartCard from "./CartCard";
 
 const Cart = () => {
   const { products } = useSelector((state: RootState) => state.cart);
-  const subTotal = products.map((product) =>{
-    return Number(product.price) * Number( product.quantity)
-  })
+  const subTotal = products.map((product) => {
+    return Number(product.price) * Number(product.quantity);
+  });
   return (
     <>
       <div className="flex gap-3 m-10">
@@ -21,11 +20,15 @@ const Cart = () => {
             <p className="font-semibold w-1/5">Quantity</p>
             <p className="font-semibold w-1/5">Subtotal</p>
           </div>
-          <div className="">
-            {products.map((prod, index) => {
-              return <CartCard product={prod} key={index} />;
-            })}
-          </div>
+          {Number(subTotal) === 0 ? (
+            <b className="text-center">No products in cart</b>
+          ) : (
+            <div className="">
+              {products.map((prod, index) => {
+                return <CartCard product={prod} key={index} />;
+              })}
+            </div>
+          )}
           {/* <div className="flex justify-between bg-primary p-3">
             <img src={products} alt="" />
         </div> */}
@@ -33,15 +36,24 @@ const Cart = () => {
         {/* right */}
         <div className="w-[20%] bg-primary flex flex-col justify-center items-center gap-3 py-3">
           <b className="text-3xl">Cart Totals</b>
-          <div className="flex gap-5">
-            <b>Subtotal</b> <p className="text-gray-500">{subTotal}</p>
-          </div>
-          <div className="flex gap-5">
-            <b>Total</b> <p className="text-primaryDark">{subTotal}</p>
-          </div>
-          <div className="">
-            <SidebarButtons text="Check Out" />
-          </div>
+          {Number(subTotal) === 0 ? (
+            <p>No subtotal yet</p>
+          ) : (
+            <>
+              <div className="flex gap-5">
+                <b>Subtotal</b> <p className="text-gray-500">{subTotal}</p>
+              </div>
+              <div className="flex gap-5">
+                <b>Total</b> <p className="text-primaryDark">{subTotal}</p>
+              </div>
+              <div className="">
+                <SidebarButtons
+                  text="Check Out"
+                  className="border border-black rounded-xl"
+                />
+              </div>
+            </>
+          )}
         </div>
       </div>
       <Banner />
