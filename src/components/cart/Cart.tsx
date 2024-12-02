@@ -1,6 +1,6 @@
 import SidebarButtons from "./SidebarButtons";
 import Banner from "../custom/shop/Banner";
-import { useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { RootState } from "../../store";
 import CartCard from "./CartCard";
 
@@ -9,6 +9,8 @@ const Cart = () => {
   const subTotal = products.map((product) => {
     return Number(product.price) * Number(product.quantity);
   });
+
+
   return (
     <>
       <div className="flex gap-3 m-10">
@@ -25,7 +27,8 @@ const Cart = () => {
           ) : (
             <div className="">
               {products.map((prod, index) => {
-                return <CartCard product={prod} key={index} />;
+                return <CartCard product={prod} key={index} />
+                
               })}
             </div>
           )}

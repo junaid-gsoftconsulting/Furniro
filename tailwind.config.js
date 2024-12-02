@@ -24,12 +24,13 @@ module.exports = {
     extend: {
       colors: {
         primary: "#fff3e3",
-        secondary:"#000000",
+        secondary: "#000000",
+        success: "#b88e2f",
+        default: "#FFFFFF",
         primaryDark: "#b88e2f",
-        lightGray: "#f4f5f7"
+        lightGray: "#f4f5f7",
       },
     },
- 
   },
   darkMode: "class",
   plugins: [nextui()],

@@ -2,3 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+  } 
+  .swiper-pagination-bullet-active {
+    background-color: #b88e2f;
+  }
+  

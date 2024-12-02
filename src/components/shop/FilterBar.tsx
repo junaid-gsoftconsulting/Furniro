@@ -4,14 +4,16 @@ import list from "../../../public/assets/filter/list.svg";
 import category from "../../../public/assets/filter/category.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
+import search from "../../assets/navbar/search.svg"
 import {
+  searchProducts,
   showListView,
   showProductsPerPage,
   sortingProducts,
 } from "../slices/PaginationSlice";
 
 const FilterBar = () => {
-  const { products, productsPerPage, currentPage } = useSelector(
+  const { productsPerPage, currentPage , filteredProducts} = useSelector(
     (state: RootState) => state.pagination
   );
   const dispatch = useDispatch();
@@ -20,7 +22,7 @@ const FilterBar = () => {
   const endIndex = startIndex + productsPerPage;
   const currentProductStart = startIndex + 1;
   const currentProductEnd =
-    endIndex > products.length ? products.length : endIndex;
+    endIndex > filteredProducts.length ? filteredProducts.length : endIndex;
 
   const handleSortChange = (sortBy: string) => {
     dispatch(sortingProducts(sortBy));
@@ -31,6 +33,10 @@ const FilterBar = () => {
 
   const handleShowList = (type: string) => {
     dispatch(showListView(type));
+  };
+  // search
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(searchProducts(e.target.value)); 
   };
   return (
     <div className="flex flex-col md:flex-row gap-3 justify-between bg-primary p-4 items-center">
@@ -56,13 +62,26 @@ const FilterBar = () => {
         </div>
         <Divider orientation="vertical" className="w-[2px]" />
         <div className="">
-          <p>
-            Showing {currentProductStart}–{Number(currentProductEnd)} of {products.length} results
+        <p>
+            Showing {currentProductStart}–{currentProductEnd} of{" "}
+            {filteredProducts.length} results
           </p>
         </div>
       </div>
       {/* right */}
       <div className="flex flex-col sm:flex-row justify-center items-center text-center gap-2">
+        {/* search bar */}
+      <div className="relative w-64">
+          <input
+            type="text"
+            placeholder="Search products..."
+            className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
+            onChange={handleSearchChange}
+          />
+          <span className="absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer">
+            <img src={search} alt="search" className="w-4"/>
+          </span>
+        </div>
         <p>Show</p>
         <div className="bg-white">
           <Select
@@ -70,6 +89,7 @@ const FilterBar = () => {
             className="w-16 rounded-none"
             color="default"
             radius="none"
+            style={{ backgroundColor: '#FFFFFF' }}
             key={"4"}
           >
             <SelectItem
@@ -106,6 +126,9 @@ const FilterBar = () => {
             className="w-32 rounded-none"
             color="default"
             radius="none"
+            style={{ backgroundColor: '#FFFFFF' }}
+
+          
           >
             <SelectItem key={"asc"} onClick={() => handleSortChange("asc")}>
               Ascending

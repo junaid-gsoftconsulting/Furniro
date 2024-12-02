@@ -47,25 +47,25 @@ const Slider = () => {
         })} */}
         {/* 3 */}
         <div className="basis-full md:basis-1/3 overflow-hidden">
-          <Swiper
+        <Swiper
             slidesPerView={"auto"}
             spaceBetween={5}
             pagination={{
               clickable: true,
+              
             }}
-            height={30}
-            className="h-96 w-full"
-            width={100}
+            className="h-full w-full"
             modules={[Pagination]}
+            loop={true}
           >
             <SwiperSlide>
-              <img src={sliderPic} alt="swiper" className="w-full" />
+              <img src={sliderPic} alt="swiper" className="w-full h-full object-cover" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={sliderPic2} alt="swiper" className="w-full" />
+              <img src={sliderPic2} alt="swiper" className="w-full h-full object-cover" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={sliderPic3} alt="swiper" className="w-full" />
+              <img src={sliderPic3} alt="swiper" className="w-full h-full object-cover" />
             </SwiperSlide>
           </Swiper>
         </div>

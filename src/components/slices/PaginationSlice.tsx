@@ -10,14 +10,16 @@ interface Product {
   discount: string;
 }
 interface paginationInitialState {
-  itemsPerPage: any;
-  totalPages: any;
+  itemsPerPage: number;
+  totalPages: number;
   products: Product[];
   productsPerPage: number;
   currentPage: number;
   sortBy: string;
   showproductsPerPage: string;
   setShowListView: string;
+  filteredProducts: Product[];
+  searchQuery: string;
 }
 const initialState: paginationInitialState = {
   products: [],
@@ -26,6 +28,10 @@ const initialState: paginationInitialState = {
   sortBy: "default",
   showproductsPerPage: "4",
   setShowListView: "grid",
+  itemsPerPage: 0,
+  totalPages: 0,
+  filteredProducts: [],
+  searchQuery: "",
 };
 export const paginationSlice = createSlice({
   name: "pagination",
@@ -39,15 +45,16 @@ export const paginationSlice = createSlice({
     },
     fetchProducts: (state, action: PayloadAction<Product[]>) => {
       state.products = action.payload;
+      state.filteredProducts = action.payload;
     },
     sortingProducts: (state, action) => {
       state.sortBy = action.payload;
       if (state.sortBy === "asc") {
-        state.products = state.products.sort((a, b) => {
+        state.filteredProducts = state.filteredProducts.sort((a, b) => {
           return Number(a.price) - Number(b.price);
         });
       } else if (state.sortBy === "desc") {
-        state.products = state.products.sort((a, b) => {
+        state.filteredProducts = state.filteredProducts.sort((a, b) => {
           return Number(b.price) - Number(a.price);
         });
       }
@@ -64,9 +71,19 @@ export const paginationSlice = createSlice({
         state.productsPerPage = 24;
       }
     },
-    showListView: (state,action:PayloadAction<string>) => {
-      state.setShowListView = action.payload
-      
+    showListView: (state, action: PayloadAction<string>) => {
+      state.setShowListView = action.payload;
+    },
+    searchProducts: (state, action: PayloadAction<string>) => {
+      state.searchQuery = action.payload;
+      if (state.searchQuery.trim() === "") {
+        // If search is empty, show all products
+        state.filteredProducts = state.products;
+      } else {
+        state.filteredProducts = state.products.filter((product) =>
+          product.name.toLowerCase().includes(state.searchQuery.toLowerCase())
+        );
+      }
     },
   },
 });
@@ -77,9 +94,8 @@ export const {
   prevPage,
   sortingProducts,
   showProductsPerPage,
-  showListView
+  showListView,
+  searchProducts,
 } = paginationSlice.actions;
 
 export default paginationSlice.reducer;
-
-

@@ -6,12 +6,14 @@ import bedroom from "/assets/hero/bedroom.svg";
 
 const BrowseRange = () => {
   return (
-    <div className="flex flex-col my-5">
-      <CustomHeading
+    <div className="flex flex-col my-5 ">
+    <div className="my-5 px-3">
+    <CustomHeading
         heading="Browse The Range"
         lowerdesc="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
       />
-      <div className="flex flex-col md:flex-row justify-center items-center gap-2">
+    </div>
+      <div className="flex flex-col md:flex-row justify-center items-center gap-2 m-5 md:m-0 mt-5">
         <BrowseRangeCard heading="Dining" image={dining} />
         <BrowseRangeCard heading="Living" image={living} />
         <BrowseRangeCard heading="Bedroom" image={bedroom} />
