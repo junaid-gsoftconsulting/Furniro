@@ -6,8 +6,8 @@ import bedroom from "/assets/hero/bedroom.svg";
 
 const BrowseRange = () => {
   return (
-    <div className="flex flex-col my-5 ">
-    <div className="my-5 px-3">
+    <div className="flex flex-col my-7 ">
+    <div className="mb-8 px-3">
     <CustomHeading
         heading="Browse The Range"
         lowerdesc="Lorem ipsum dolor sit amet, consectetur adipiscing elit."

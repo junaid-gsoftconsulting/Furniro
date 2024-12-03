@@ -72,13 +72,13 @@ const Checkout = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 ">
           {/* left */}
           <div className="m-5 flex flex-col gap-3">
-            <div className="flex flex-col lg:flex-row gap-2 w-full">
+            <div className="flex flex-col lg:flex-row gap-2">
               <Controller
                 name="firstName"
                 control={control}
                 render={({ field }) => {
                   return (
-                    <div className="flex flex-col">
+                    <div className="flex flex-col w-full">
                       <CustomInput
                         type="text"
                         name="First Name"
@@ -98,7 +98,7 @@ const Checkout = () => {
                 control={control}
                 render={({ field }) => {
                   return (
-                    <div className="flex flex-col">
+                    <div className="flex flex-col w-full">
                       <CustomInput
                         type="text"
                         name="Last Name"

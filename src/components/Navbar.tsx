@@ -20,20 +20,24 @@ import { RootState } from "../store";
 import { Link } from "react-router-dom";
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] =  React.useReducer((current) => !current, false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const menuItems = ["home", "shop", "blog", "contact"];
   const handleCartToggle = () => {
     setIsCartOpen(!isCartOpen);
   };
-  const handleMenuClose = () => {
-    setIsMenuOpen(false);
-  };
+  // const handleMenuClose = () => {
+  //   setIsMenuOpen(false);
+  // };
   const { products } = useSelector((state: RootState) => state.cart);
 
   return (
     <>
-      <Navbar onMenuOpenChange={setIsMenuOpen} maxWidth="full">
+      <Navbar
+        onMenuOpenChange={setIsMenuOpen}
+        maxWidth="full"
+        isMenuOpen={isMenuOpen}
+      >
         <NavbarBrand className="gap-1">
           <img src={logo} alt="logo" width={40} />
           <p className="font-bold text-inherit text-xl">Furniro</p>
@@ -87,14 +91,15 @@ export default function Header() {
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             className="md:hidden"
           />
-          <NavbarMenu className="items-center"> 
+          <NavbarMenu className="items-center">
             {menuItems?.map((item, index) => (
               <NavbarMenuItem key={`${item}-${index}`}>
                 <Link
                   color={"foreground"}
                   className="w-full"
                   to={item === "home" ? "/" : `/${item}`}
-                  onClick={handleMenuClose}
+                  // onClick={handleMenuClose}
+                  onClick={setIsMenuOpen}
                 >
                   {item}
                 </Link>
