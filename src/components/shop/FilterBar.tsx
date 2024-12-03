@@ -39,6 +39,7 @@ const FilterBar = () => {
   // search
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(searchProducts(e.target.value));
+    console.log("event =====",e.target.value);
   };
   return (
     <div className="flex flex-col md:flex-row gap-3 justify-between bg-primary p-4 items-center">
@@ -46,7 +47,7 @@ const FilterBar = () => {
       <div className="flex flex-col lg:flex-row gap-4">
         <div className="flex gap-4">
           <span>
-            <img src={filter} alt="filter"/>
+            <img src={filter} alt="filter" />
           </span>
           <p>Filter</p>
           <span
@@ -66,7 +67,9 @@ const FilterBar = () => {
             onClick={() => handleShowList("doubleList")}
             className="cursor-pointer"
           >
-            <div className="flex justify-center items-center font-bold"><PiDotsSixVerticalBold size={25} /></div>
+            <div className="flex justify-center items-center font-bold">
+              <PiDotsSixVerticalBold size={25} />
+            </div>
           </span>
         </div>
         <Divider orientation="vertical" className="w-[2px]" />
@@ -91,7 +94,6 @@ const FilterBar = () => {
             <img src={search} alt="search" className="w-4" />
           </span>
         </div>
-
 
         <p>Show</p>
         <div className="bg-white">

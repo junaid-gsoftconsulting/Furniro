@@ -78,10 +78,15 @@ export const paginationSlice = createSlice({
     },
     searchProducts: (state, action: PayloadAction<string>) => {
       state.searchQuery = action.payload;
+
       if (state.searchQuery.trim() === "") {
+        console.log("query + action ===", state.searchQuery, action.payload, [
+          ...state.products,
+          [...state.filteredProducts],
+        ]);
         // If search is empty, show all products
         // state.filteredProducts = state.products;
-        state.products = [...state.products];
+        state.products = [...state.filteredProducts];
       } else {
         state.products = state.products.filter((product) =>
           product.name.toLowerCase().includes(state.searchQuery.toLowerCase())

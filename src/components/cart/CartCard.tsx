@@ -86,19 +86,20 @@ const CartCard = ({ product }: CardCardProps) => {
         <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
             <h2 className="text-xl font-semibold">Are you sure you want to delete this item?</h2>
-            <div className="flex justify-between mt-4">
+            <div className="flex justify-end gap-3 mt-4">
+            <button
+                onClick={closeModal}
+                className="px-4 py-2 bg-gray-300 text-black rounded"
+              >
+                Cancel
+              </button>
               <button
                 onClick={deleteHandler}
                 className="px-4 py-2 bg-primaryDark text-white rounded"
               >
                 Confirm
               </button>
-              <button
-                onClick={closeModal}
-                className="px-4 py-2 bg-gray-300 text-black rounded"
-              >
-                Cancel
-              </button>
+           
             </div>
           </div>
         </div>
