@@ -54,7 +54,7 @@ const CartCard = ({ product }: CardCardProps) => {
           <div className="flex gap-3 ">
             <button
               onClick={() => handleDecrease(Number(product.id))}
-              className="px-2 py-1 bg-gray-300 rounded"
+              className="px-2 py-1 bg-primaryDark text-white rounded"
             >
               -
             </button>
@@ -63,7 +63,7 @@ const CartCard = ({ product }: CardCardProps) => {
             </p>
             <button
               onClick={() => handleIncrease(Number(product.id))}
-              className="px-2 py-1 bg-gray-300 rounded"
+              className="px-2 py-1 bg-primaryDark text-white rounded"
             >
               +
             </button>
