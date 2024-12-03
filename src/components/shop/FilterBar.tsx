@@ -4,7 +4,7 @@ import list from "../../../public/assets/filter/list.svg";
 import category from "../../../public/assets/filter/category.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
-import search from "../../assets/navbar/search.svg";
+import search from "../../../public/assets/navbar/search.svg";
 import { PiDotsSixVerticalBold } from "react-icons/pi";
 
 import {

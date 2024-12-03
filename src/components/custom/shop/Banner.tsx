@@ -1,7 +1,7 @@
-import trophy from "../../../assets/shop/trophy.svg";
-import support from "../../../assets/shop/support.svg";
-import shipping from "../../../assets/shop/shipping.svg";
-import warranty from "../../../assets/shop/warranty.svg";
+import trophy from "../../../../public/assets/shop/trophy.svg";
+import support from "../../../../public/assets/shop/support.svg";
+import shipping from "../../../../public/assets/shop/shipping.svg";
+import warranty from "../../../../public/assets/shop/warranty.svg";
 import ShopBannerFrame from './ShopBannerFrame';
 
 const Banner = () => {

@@ -10,10 +10,10 @@ import {
   NavbarMenuToggle,
 } from "@nextui-org/react";
 import logo from "../assets/logo.svg";
-import account from "../assets/navbar/account.svg";
-import cart from "../assets/navbar/cart.svg";
-import heart from "../assets/navbar/heart.svg";
-import search from "../assets/navbar/search.svg";
+import account from "../../public/assets/navbar/account.svg";
+import cart from "../../public/assets/navbar/cart.svg";
+import heart from "../../public/assets/navbar/heart.svg";
+import search from "../../public/assets/navbar/search.svg";
 import SidebarCart from "./cart/SidebarCart";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
@@ -81,12 +81,13 @@ export default function Header() {
             </Link>
           </NavbarItem>
         </NavbarContent>
+        {/* mobile */}
         <NavbarContent justify="end" className="flex md:hidden">
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             className="md:hidden"
           />
-          <NavbarMenu className="items-center">
+          <NavbarMenu className="items-center"> 
             {menuItems?.map((item, index) => (
               <NavbarMenuItem key={`${item}-${index}`}>
                 <Link
