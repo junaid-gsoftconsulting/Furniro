@@ -294,7 +294,7 @@ const Checkout = () => {
                       {products.map((product) => product.name)}
                     </span>{" "}
                     <RiCloseLine className="text-black" />{" "}
-                    {products.map((product) => product.quantity)}
+                    {products.map((product) => product.quantity )}
                   </p>
                   <p>Subtotal</p>
                   <p>Total</p>

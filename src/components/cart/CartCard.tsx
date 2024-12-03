@@ -59,7 +59,7 @@ const CartCard = ({ product }: CardCardProps) => {
               -
             </button>
             <p className="border border-black px-2 rounded-lg w-fit flex items-center">
-              {product.quantity}
+              {Number(product.quantity)}
             </p>
             <button
               onClick={() => handleIncrease(Number(product.id))}

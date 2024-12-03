@@ -23,7 +23,7 @@ const cartSlice = createSlice({
         (product) => product.id === action.payload.id
       );
       if (productInCart) {
-        productInCart.quantity += action.payload.quantity;
+        productInCart.quantity += Number(action.payload.quantity);
       } else {
         state.products.push({ ...action.payload });
       }
@@ -37,7 +37,7 @@ const cartSlice = createSlice({
         (product) => product.id === action.payload
       );
       if (product) {
-        product.quantity += 1;
+        product.quantity = Number(product.quantity) +1;
       }
     },
     decreaseQuantity: (state, action: PayloadAction<number>) => {
