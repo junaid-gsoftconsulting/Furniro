@@ -59,6 +59,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
           alt="product image"
           className="w-full object-cover h-[240px] rounded-none"
           src={product.images[0]}
+          // removing rounded skeleton
+          classNames={{
+            wrapper: "rounded-none",
+            img: "rounded-none",
+            blurredImg: "rounded-none",
+          }}
         />
         <div
           className={`flex justify-center items-center ${
