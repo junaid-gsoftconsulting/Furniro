@@ -56,6 +56,11 @@ const DoubleListProductCard = ({ product }: ProductCardProps) => {
             alt="product image"
             className="w-full object-cover h-[240px] rounded-none"
             src={product.images[0]}
+            classNames={{
+              wrapper: "rounded-none",
+              img: "rounded-none",
+              blurredImg: "rounded-none",
+            }}
           />
         </div>
         <div className="flex flex-col gap-3 justify-center p-3">
