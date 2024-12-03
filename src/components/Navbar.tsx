@@ -84,9 +84,18 @@ export default function Header() {
               )}
             </Link>
           </NavbarItem>
+         
         </NavbarContent>
         {/* mobile */}
         <NavbarContent justify="end" className="flex md:hidden">
+        <Link to="#" onClick={handleCartToggle} className="block md:hidden relative">
+              <img src={cart} alt="account" width="80%" />
+              {products.length > 0 && (
+                <div className="absolute flex justify-center items-center bg-red-600 rounded-full w-4 h-4 -top-1 right-0">
+                  <p className="text-[10px]">{products.length}</p>
+                </div>
+              )}
+            </Link>
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             className="md:hidden"

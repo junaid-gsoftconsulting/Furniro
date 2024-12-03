@@ -50,6 +50,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       radius="none"
       shadow="none"
       className="relative group"
+      
     >
       <ToastContainer />
       <CardBody className="overflow-hidden p-0 group-hover:opacity-50">

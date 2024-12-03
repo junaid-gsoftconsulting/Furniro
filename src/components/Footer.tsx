@@ -1,4 +1,4 @@
-import { Link } from "@nextui-org/link";
+import { Link } from "react-router-dom";
 import CustomButton from "./custom/home/CustomButton";
 
 const Footer = () => {
@@ -15,16 +15,16 @@ const Footer = () => {
         {/*  Links */}
         <div className="flex flex-col w-full md:w-1/3">
           <b className="text-medium text-black">Links</b>
-          <Link href="#" className="text-black text-sm mb-1">
+          <Link to="/" className="text-black text-sm mb-1">
             Home
           </Link>
-          <Link href="#" className="text-black text-sm mb-1">
+          <Link to="/shop" className="text-black text-sm mb-1">
             Shop
           </Link>
-          <Link href="#" className="text-black text-sm mb-1">
+          <Link to="/blog" className="text-black text-sm mb-1">
             About
           </Link>
-          <Link href="#" className="text-black text-sm mb-1">
+          <Link to="/contact" className="text-black text-sm mb-1">
             Contact
           </Link>
         </div>

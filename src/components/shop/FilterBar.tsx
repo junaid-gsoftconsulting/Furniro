@@ -43,10 +43,10 @@ const FilterBar = () => {
   return (
     <div className="flex flex-col md:flex-row gap-3 justify-between bg-primary p-4 items-center">
       {/* left */}
-      <div className="flex flex-col sm:flex-row gap-4">
+      <div className="flex flex-col lg:flex-row gap-4">
         <div className="flex gap-4">
           <span>
-            <img src={filter} alt="filter" />
+            <img src={filter} alt="filter"/>
           </span>
           <p>Filter</p>
           <span
