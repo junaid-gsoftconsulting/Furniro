@@ -50,15 +50,15 @@ export const paginationSlice = createSlice({
     sortingProducts: (state, action) => {
       state.sortBy = action.payload;
       if (state.sortBy === "asc") {
-        state.products = state.products.sort((a, b) => {
+        state.filteredProducts = state.products.sort((a, b) => {
           return Number(a.price) - Number(b.price);
         });
       } else if (state.sortBy === "desc") {
-        state.products = state.products.sort((a, b) => {
+        state.filteredProducts = state.products.sort((a, b) => {
           return Number(b.price) - Number(a.price);
         });
       } else if (state.sortBy === "default") {
-        state.products = [...state.products];
+        state.filteredProducts = [...state.products];
       }
     },
     showProductsPerPage: (state, action: PayloadAction<string>) => {
@@ -80,9 +80,10 @@ export const paginationSlice = createSlice({
       state.searchQuery = action.payload;
       if (state.searchQuery.trim() === "") {
         // If search is empty, show all products
-        state.filteredProducts = state.products;
+        // state.filteredProducts = state.products;
+        state.products = [...state.products];
       } else {
-        state.filteredProducts = state.products.filter((product) =>
+        state.products = state.products.filter((product) =>
           product.name.toLowerCase().includes(state.searchQuery.toLowerCase())
         );
       }

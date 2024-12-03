@@ -46,8 +46,8 @@ const SingleProductCard = () => {
 
     if (product) {
       const filteredProducts = data.products.filter(
-        // (filteredProduct) => filteredProduct.category === product.category && filteredProduct.id !== product.id
-        (filteredProduct) => filteredProduct.category === product.category
+        (filteredProduct) => filteredProduct.category === product.category && filteredProduct.id !== product.id
+        // (filteredProduct) => filteredProduct.category === product.category
       );
       setRelatedProducts(filteredProducts);
     }

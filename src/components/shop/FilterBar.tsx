@@ -5,6 +5,8 @@ import category from "../../../public/assets/filter/category.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
 import search from "../../assets/navbar/search.svg";
+import { PiDotsSixVerticalBold } from "react-icons/pi";
+
 import {
   searchProducts,
   showListView,
@@ -59,6 +61,13 @@ const FilterBar = () => {
           >
             <img src={list} alt="filter" />
           </span>
+          {/* double list */}
+          <span
+            onClick={() => handleShowList("doubleList")}
+            className="cursor-pointer"
+          >
+            <div className="flex justify-center items-center font-bold"><PiDotsSixVerticalBold size={25} /></div>
+          </span>
         </div>
         <Divider orientation="vertical" className="w-[2px]" />
         <div className="">
@@ -82,6 +91,8 @@ const FilterBar = () => {
             <img src={search} alt="search" className="w-4" />
           </span>
         </div>
+
+
         <p>Show</p>
         <div className="bg-white">
           <Select

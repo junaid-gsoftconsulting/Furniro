@@ -20,7 +20,7 @@ interface ProductCardProps {
   };
 }
 
-const ListProductCard = ({ product }: ProductCardProps) => {
+const DoubleListProductCard = ({ product }: ProductCardProps) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cartHandler = (id: number) => {
@@ -64,7 +64,7 @@ const ListProductCard = ({ product }: ProductCardProps) => {
             {product.miniDescription}
           </p>
         </div>
-        <div className="absolute right-7 bottom-8 sm:bottom-5 z-20 font-semibold text-xl">
+        <div className="absolute right-2  sm:right-7 bottom-8 sm:bottom-5 z-20 font-semibold text-xl">
           <p>Rs. {product.price}</p>
         </div>
         <div
@@ -102,4 +102,4 @@ const ListProductCard = ({ product }: ProductCardProps) => {
   );
 };
 
-export default ListProductCard;
+export default DoubleListProductCard;

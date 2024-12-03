@@ -84,7 +84,7 @@ export default function Header() {
         <NavbarContent justify="end" className="flex md:hidden">
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className="sm:hidden"
+            className="md:hidden"
           />
           <NavbarMenu className="items-center">
             {menuItems?.map((item, index) => (

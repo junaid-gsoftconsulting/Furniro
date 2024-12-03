@@ -4,6 +4,10 @@ import { useNavigate } from "react-router-dom";
 import like from "../../../public/assets/products/icons/like.svg";
 import compare from "../../../public/assets/products/icons/compare.svg";
 import share from "../../../public/assets/products/icons/share.svg";
+import { AddtoCart } from "../slices/CartSlice";
+import { toast, ToastContainer } from "react-toastify";
+import { useDispatch } from "react-redux";
+import "react-toastify/dist/ReactToastify.css";
 
 interface ProductCardProps {
   product: {
@@ -19,16 +23,35 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  // const {products} =  useSelector((state:RootState) => state.cart)
   const cartHandler = (id: number) => {
     navigate(`/shop/${id}`);
+  };
+
+  const addToCartHandler = () => {
+    if (product) {
+      dispatch(
+        AddtoCart({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          images: product.images,
+          quantity: 1,
+        })
+      );
+      toast.success("Product added to cart");
+    }
   };
   return (
     <Card
       isPressable
       onPress={() => console.log("item pressed")}
       radius="none"
+      shadow="none"
       className="relative group"
     >
+      <ToastContainer />
       <CardBody className="overflow-hidden p-0 group-hover:opacity-50">
         <Image
           width="100%"
@@ -54,11 +77,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </div>
       </CardFooter>
       {/* overlay */}
-      <div className="absolute bg-black/60 inset-0 opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center gap-2">
+      <div
+        className="absolute bg-black/60 inset-0 opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center gap-2"
+        onClick={() => cartHandler(Number(product.id))}
+      >
         <CustomButton
           text="Add to Cart"
           className="bg-primary text-primaryDark font-semibold"
-          onClick={() => cartHandler(Number(product.id))}
+          onClick={addToCartHandler}
         />
         <div className="flex text-white gap-5 font-semibold">
           <div className="flex gap-1">

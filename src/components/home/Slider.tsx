@@ -20,7 +20,7 @@ const Slider = () => {
     <>
       <div className="flex flex-col md:flex-row bg-primary items-stretch md:h-[70vh] my-5">
         {/* 1 */}
-        <div className="basis-full md:basis-1/3 flex flex-col gap-2 p-6">
+        <div className="basis-full md:basis-1/3 flex flex-col gap-2 p-6 justify-center">
           <p className="text-3xl font-bold">50+ Beautiful rooms inspiration</p>
           <p>
             Our designer already made a lot of beautiful prototipe of rooms that

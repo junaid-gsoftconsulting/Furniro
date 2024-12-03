@@ -28,7 +28,7 @@ const Contact = () => {
     console.log(data);
     if (!isSubmitting) {
       setIsSubmitting(true);
-      toast.success("Your form has been submitted successfully!");
+      toast.success("Query submitted successfully!");
 
       setTimeout(() => {
         setIsSubmitting(false);
