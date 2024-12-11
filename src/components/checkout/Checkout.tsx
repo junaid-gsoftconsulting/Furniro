@@ -8,12 +8,12 @@ import { RootState } from "../../store";
 import { useState } from "react";
 import SidebarButtons from "../cart/SidebarButtons";
 import CustomPaymentMethod from "./CustomPaymentMethod";
-import { RiCloseLine } from "react-icons/ri";
 import { Controller, FieldError, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckoutFormSchema } from "../utils/CheckoutValidation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { RiCloseLine } from "react-icons/ri";
 
 const Checkout = () => {
   const [activePaymentMethod, setActivePaymentMethod] = useState<string>();
@@ -22,9 +22,9 @@ const Checkout = () => {
 
   const country = ["Pakistan", "India"];
   const provinces = ["Punjab", "KPK", "Balochistan", "Sindh"];
-  const total = products.map(
-    (product) => Number(product.price) * Number(product.quantity)
-  );
+  // const total = products.map(
+  //   (product) => Number(product.price) * Number(product.quantity)
+  // );
   const paymentMethods = [
     {
       id: "bank",
@@ -54,10 +54,9 @@ const Checkout = () => {
   const submitHandler = (data: unknown) => {
     console.log(data);
     if (!isSubmitting) {
-      setIsSubmitting(true); 
+      setIsSubmitting(true);
       toast.success("Your form have been submitted");
 
-     
       setTimeout(() => {
         setIsSubmitting(false);
       }, 2000);
@@ -283,7 +282,7 @@ const Checkout = () => {
           {/* right */}
           <div className="flex flex-col gap-4 bg-green-2 m-5">
             {/* top */}
-            {Number(total) === 0 ? (
+            {/* {Number(total) === 0 ? (
               <p>No products in cart</p>
             ) : (
               <div className="flex justify-between w-full">
@@ -309,7 +308,55 @@ const Checkout = () => {
                 </div>
                 <div className=""></div>
               </div>
+            )} */}
+            {Number(products.length) === 0 ? (
+              <p>No products in cart</p>
+            ) : (
+              <div className="flex justify-between w-full">
+                <div className="flex flex-col">
+                  <b className="text-xl">Product</b>
+                  {/*prod and quantity */}
+                  {products.map((product, index) => (
+                    <p key={index} className="flex justify-between">
+                      <span className="text-gray-500">{product.name}</span>
+                      <span className="flex justify-center items-center"><RiCloseLine className="text-gray-500" />{" "}</span>
+
+                      <span className="text-gray-500">{product.quantity}</span>
+                    </p>
+                  ))}
+                  <p>Subtotal</p>
+                  <p>Total</p>
+                </div>
+                <div className="flex flex-col items-end w-full">
+                  <b className="text-xl">Subtotal</b>
+                  {/* subtotals for single product */}
+                  {products.map((product, index) => {
+                    return (
+                      <p key={index}>
+                        Rs {Number(product.price) * product.quantity}
+                      </p>
+                    );
+                  })}
+                  <p>
+                    Rs{" "}
+                    {products.reduce(
+                      (acc, product) =>
+                        acc + Number(product.price) * product.quantity,
+                      0
+                    )}
+                  </p>
+                  <p className="text-primaryDark text-2xl font-semibold">
+                    Rs{" "}
+                    {products.reduce(
+                      (acc, product) =>
+                        acc + Number(product.price) * product.quantity,
+                      0
+                    )}
+                  </p>
+                </div>
+              </div>
             )}
+            {/* ----------------------------------------------------------------------------------------------------- */}
             <Divider className="my-3" />
             <div className="flex flex-col">
               {/* payment method */}
