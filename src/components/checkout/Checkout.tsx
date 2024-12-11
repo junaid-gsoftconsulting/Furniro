@@ -319,14 +319,16 @@ const Checkout = () => {
                   {products.map((product, index) => (
                     <p key={index} className="flex justify-between">
                       <span className="text-gray-500">{product.name}</span>
-                      <span className="flex justify-center items-center"><RiCloseLine className="text-gray-500" />{" "}</span>
+                      <span className="flex justify-center items-center">
+                        <RiCloseLine className="text-gray-500" />{" "}
+                      </span>
 
                       <span className="text-gray-500">{product.quantity}</span>
                     </p>
                   ))}
                   <p>Subtotal</p>
                   <p>Total</p>
-                </div>
+                </div>    
                 <div className="flex flex-col items-end w-full">
                   <b className="text-xl">Subtotal</b>
                   {/* subtotals for single product */}

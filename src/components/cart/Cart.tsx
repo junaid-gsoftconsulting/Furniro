@@ -1,6 +1,6 @@
 import SidebarButtons from "./SidebarButtons";
 import Banner from "../custom/shop/Banner";
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import CartCard from "./CartCard";
 
@@ -9,7 +9,6 @@ const Cart = () => {
   const subTotal = products.map((product) => {
     return Number(product.price) * Number(product.quantity);
   });
-
 
   return (
     <>
@@ -27,8 +26,7 @@ const Cart = () => {
           ) : (
             <div className="">
               {products.map((prod, index) => {
-                return <CartCard product={prod} key={index} />
-                
+                return <CartCard product={prod} key={index} />;
               })}
             </div>
           )}
@@ -44,10 +42,21 @@ const Cart = () => {
           ) : (
             <>
               <div className="flex gap-5">
-                <b>Subtotal</b> <p className="text-gray-500">{subTotal}</p>
+                <b>Subtotal</b>{" "}
+                <p className="text-gray-500">
+                  {products.reduce((acc, product) => {
+                    return acc + Number(product.price) * product.quantity;
+                  }, 0)}
+                </p>
               </div>
               <div className="flex gap-5">
-                <b>Total</b> <p className="text-primaryDark">{subTotal}</p>
+                <b>Total</b>{" "}
+                <p className="text-primaryDark">
+                  {" "}
+                  {products.reduce((acc, product) => {
+                    return acc + Number(product.price) * product.quantity;
+                  }, 0)}
+                </p>
               </div>
               <div className="">
                 <SidebarButtons
