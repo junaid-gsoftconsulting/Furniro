@@ -44,7 +44,7 @@ const SidebarCart = ({ onClose }: SidebarCartProps) => {
         <Divider />
       </div>
       {/* sidebar body */}
-      <div className="flex flex-col h-[80%]">
+      <div className="flex flex-col h-[80%] overflow-y-auto p-1">
         {products.length > 0 ? (
           products.map((product, index) => (
             <CartSidebarCard product={product} key={index} />
@@ -61,9 +61,9 @@ const SidebarCart = ({ onClose }: SidebarCartProps) => {
         {/* <CartSidebarCard name="xyz" price="12345" quantity={3} image={img}/> */}
       </div>
       {/* Sidebar footer */}
-      <div className="flex flex-col gap-3 justify-end h-[15%]">
-        <Divider orientation="horizontal" />
-        <div className="flex flex-wrap gap-3 p-2 justify-evenly w-full">
+      <div className="flex flex-col gap-3 justify-end h-[15%] bg-white ">
+        {/* <Divider orientation="horizontal" /> */}
+        <div className="flex flex-wrap gap-3 p-2 justify-evenly w-full relative bg-white">
           <SidebarButtons
             text="Cart"
             onClick={cartHandler}

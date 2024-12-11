@@ -1,7 +1,9 @@
 import hero from "/assets/hero/hero-bg.svg";
 import CustomButton from "../custom/home/CustomButton";
-
+import { useNavigate } from "react-router-dom";
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <div
       className="bg-cover h-[35.5rem] bg-center flex justify-end items-center p-8 "
@@ -17,7 +19,11 @@ const Hero = () => {
           tellus, luctus nec ullamcorper mattis.
         </p>
         <div className="">
-          <CustomButton text="Buy Now" className="text-white" />
+          <CustomButton
+            text="Buy Now"
+            className="text-white"
+            onClick={() => navigate("/shop")}
+          />
         </div>
       </div>
     </div>

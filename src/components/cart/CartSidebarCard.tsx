@@ -36,7 +36,7 @@ const CartSidebarCard = ({ product }: CartSidebarCardProps) => {
       <div className="flex flex-col justify-center flex-grow px-4">
         <p className="font-semibold">{product.name}</p>
         <p className="text-sm text-gray-500">
-          {product.quantity} * Rs. {product.price}
+          {product.quantity} * <span className="text-primaryDark">Rs. {product.price}</span>
         </p>
         <p className="font-bold">Rs. {+product.quantity * +product.price}</p>
       </div>
