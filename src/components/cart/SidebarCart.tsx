@@ -28,7 +28,7 @@ const SidebarCart = ({ onClose }: SidebarCartProps) => {
     }
   };
   return (
-    <div className="fixed top-0 right-0 w-full sm:w-[75%] md:w-1/3 h-full bg-white shadow-lg z-50 p-8">
+    <div className="fixed top-0 right-0 w-full sm:w-[75%] md:w-1/3 h-full bg-white shadow-lg z-50 p-8 no-doc-scroll">
       {/* sidebar header */}
       <div className="flex items-center justify-between h-[5%]">
         <b className="text-xl">Shopping Cart</b>

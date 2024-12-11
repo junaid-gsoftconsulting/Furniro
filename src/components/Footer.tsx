@@ -3,7 +3,7 @@ import CustomButton from "./custom/home/CustomButton";
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col py-5 bg-gray-50 p-5">
+    <footer className="flex flex-col py-5 p-5">
       <div className="flex flex-col lg:flex-row justify-between gap-5 md:gap-10 border-t pt-5">
         {/*  Funiro */}
         <div className="flex flex-col w-full md:w-1/3">

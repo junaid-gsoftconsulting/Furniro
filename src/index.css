@@ -9,3 +9,6 @@
 .swiper-pagination-bullet-active {
   background-color: #b88e2f;
 }
+:root:has(.no-doc-scroll) {
+  overflow:hidden;
+}
