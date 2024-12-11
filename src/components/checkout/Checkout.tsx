@@ -55,7 +55,7 @@ const Checkout = () => {
     console.log(data);
     if (!isSubmitting) {
       setIsSubmitting(true);
-      toast.success("Your form have been submitted");
+      toast.success("Your order have been placed");
 
       setTimeout(() => {
         setIsSubmitting(false);
