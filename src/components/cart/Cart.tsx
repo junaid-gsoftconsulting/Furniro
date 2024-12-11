@@ -3,6 +3,7 @@ import Banner from "../custom/shop/Banner";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import CartCard from "./CartCard";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { products } = useSelector((state: RootState) => state.cart);
@@ -10,6 +11,7 @@ const Cart = () => {
     return Number(product.price) * Number(product.quantity);
   });
 
+  const navigate = useNavigate();
   return (
     <>
       <div className="flex gap-3 m-10">
@@ -62,6 +64,7 @@ const Cart = () => {
                 <SidebarButtons
                   text="Check Out"
                   className="border border-black rounded-xl"
+                  onClick={() => navigate("/checkout")}
                 />
               </div>
             </>
