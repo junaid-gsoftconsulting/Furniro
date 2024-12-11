@@ -62,7 +62,7 @@ const Cart = () => {
               </div>
               <div className="">
                 <SidebarButtons
-                  text="Check Out"
+                  text="Checkout"
                   className="border border-black rounded-xl"
                   onClick={() => navigate("/checkout")}
                 />

@@ -14,11 +14,13 @@ import { CheckoutFormSchema } from "../utils/CheckoutValidation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { RiCloseLine } from "react-icons/ri";
+import Confetti from "react-confetti";
 
 const Checkout = () => {
   const [activePaymentMethod, setActivePaymentMethod] = useState<string>();
   const { products } = useSelector((state: RootState) => state.cart);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false)
 
   const country = ["Pakistan", "India"];
   const provinces = ["Punjab", "KPK", "Balochistan", "Sindh"];
@@ -56,12 +58,14 @@ const Checkout = () => {
     if (!isSubmitting) {
       setIsSubmitting(true);
       toast.success("Your order have been placed");
-
+      setShowConfetti(true);
       setTimeout(() => {
         setIsSubmitting(false);
-      }, 2000);
+        setShowConfetti(false)
+      }, 8000);
     }
   };
+  
   return (
     <div className="flex flex-col ">
       <BreadcrumCard />
@@ -328,7 +332,7 @@ const Checkout = () => {
                   ))}
                   <p>Subtotal</p>
                   <p>Total</p>
-                </div>    
+                </div>
                 <div className="flex flex-col items-end w-full">
                   <b className="text-xl">Subtotal</b>
                   {/* subtotals for single product */}
@@ -392,6 +396,7 @@ const Checkout = () => {
             </div>
           </div>
         </div>
+        {showConfetti && <Confetti  height={1500} numberOfPieces={300}/>}
       </form>
       <ToastContainer />
       <Banner />
