@@ -396,7 +396,7 @@ const Checkout = () => {
             </div>
           </div>
         </div>
-        {showConfetti && <Confetti  height={1500} numberOfPieces={300}/>}
+        {showConfetti && <Confetti  height={1500} numberOfPieces={300} width={1300}/>}
       </form>
       <ToastContainer />
       <Banner />
