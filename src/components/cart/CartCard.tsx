@@ -3,6 +3,7 @@ import cart from "/assets/cart/delete.svg";
 import { removeFromCart } from "../slices/CartSlice";
 import { decreaseQuantity, increaseQuantity } from "../slices/CartSlice";
 import { useState } from "react";
+import { Divider } from "@nextui-org/react";
 
 interface CardCardProps {
   product: {
@@ -41,16 +42,16 @@ const CartCard = ({ product }: CardCardProps) => {
   };
   return (
     <div>
-      <div className="flex p-3 w-full">
-        <div className="w-1/5">
+      <div className="flex flex-col md:flex-row justify-start items-center p-3 w-full">
+        <div className="w-full md:w-1/5 flex justify-center ">
           <img
             src={product.images[0]}
             alt="product-image"
             className="w-32 h-24 object-cover rounded-xl"
           />
         </div>
-        <p className="w-1/5">{product.name}</p>
-        <div className="w-1/5">
+        <p className="w-full md:w-1/5 flex justify-center ">{product.name}</p>
+        <div className="w-full md:w-1/5 flex justify-center ">
           <div className="flex gap-3 ">
             <button
               onClick={() => handleDecrease(Number(product.id))}
@@ -69,7 +70,7 @@ const CartCard = ({ product }: CardCardProps) => {
             </button>
           </div>
         </div>
-        <p className="w-1/5">
+        <p className="w-full md:w-1/5 flex justify-center ">
           {Number(product.price) * Number(product.quantity)}
         </p>
         <div>
@@ -79,6 +80,9 @@ const CartCard = ({ product }: CardCardProps) => {
             onClick={openModal}
             className="cursor-pointer"
           />
+        </div>
+        <div>
+          <Divider orientation="horizontal"/>
         </div>
       </div>
       {/* Modal */}
